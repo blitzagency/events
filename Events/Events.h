@@ -6,6 +6,7 @@
 //  Copyright © 2015 BLITZ. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 
 //! Project version number for Events.
 FOUNDATION_EXPORT double EventsVersionNumber;
