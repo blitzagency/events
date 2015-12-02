@@ -10,6 +10,16 @@
 		2307EE591C0BAE8000843582 /* Events.h in Headers */ = {isa = PBXBuildFile; fileRef = 2307EE581C0BAE8000843582 /* Events.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2307EE601C0BAE8000843582 /* Events.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2307EE551C0BAE8000843582 /* Events.framework */; };
 		2307EE651C0BAE8000843582 /* EventsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2307EE641C0BAE8000843582 /* EventsTests.swift */; };
+		2307EE701C0BAE9F00843582 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2307EE6F1C0BAE9F00843582 /* EventManager.swift */; };
+		2307EEBC1C0CAB9900843582 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2307EEBB1C0CAB9900843582 /* Utils.swift */; };
+		2307EEC01C0F2D6E00843582 /* EventManagerHostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2307EEBF1C0F2D6E00843582 /* EventManagerHostTests.swift */; };
+		2327EADF1C0F508B004AC6BC /* MockObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EADE1C0F508B004AC6BC /* MockObject.swift */; };
+		2327EAE11C0F7308004AC6BC /* EventManagerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EAE01C0F7308004AC6BC /* EventManagerHost.swift */; };
+		2327EAE41C0F7347004AC6BC /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EAE31C0F7347004AC6BC /* Listener.swift */; };
+		2327EAE61C0F734E004AC6BC /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EAE51C0F734E004AC6BC /* Handler.swift */; };
+		2327EAE81C0F7358004AC6BC /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EAE71C0F7358004AC6BC /* Event.swift */; };
+		2327EAF21C0F771C004AC6BC /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EAF11C0F771C004AC6BC /* EventViewController.swift */; };
+		2327EAF41C0F7749004AC6BC /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EAF31C0F7749004AC6BC /* EventView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +39,16 @@
 		2307EE5F1C0BAE8000843582 /* EventsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2307EE641C0BAE8000843582 /* EventsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTests.swift; sourceTree = "<group>"; };
 		2307EE661C0BAE8000843582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2307EE6F1C0BAE9F00843582 /* EventManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
+		2307EEBB1C0CAB9900843582 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		2307EEBF1C0F2D6E00843582 /* EventManagerHostTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManagerHostTests.swift; sourceTree = "<group>"; };
+		2327EADE1C0F508B004AC6BC /* MockObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockObject.swift; sourceTree = "<group>"; };
+		2327EAE01C0F7308004AC6BC /* EventManagerHost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManagerHost.swift; sourceTree = "<group>"; };
+		2327EAE31C0F7347004AC6BC /* Listener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listener.swift; sourceTree = "<group>"; };
+		2327EAE51C0F734E004AC6BC /* Handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Handler.swift; sourceTree = "<group>"; };
+		2327EAE71C0F7358004AC6BC /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		2327EAF11C0F771C004AC6BC /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		2327EAF31C0F7749004AC6BC /* EventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +91,13 @@
 		2307EE571C0BAE8000843582 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				2327EAEE1C0F76FE004AC6BC /* Platforms */,
+				2327EAE21C0F733E004AC6BC /* Models */,
 				2307EE581C0BAE8000843582 /* Events.h */,
 				2307EE5A1C0BAE8000843582 /* Info.plist */,
+				2307EE6F1C0BAE9F00843582 /* EventManager.swift */,
+				2327EAE01C0F7308004AC6BC /* EventManagerHost.swift */,
+				2307EEBB1C0CAB9900843582 /* Utils.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -80,10 +105,55 @@
 		2307EE631C0BAE8000843582 /* EventsTests */ = {
 			isa = PBXGroup;
 			children = (
+				2327EADD1C0F5074004AC6BC /* Utils */,
 				2307EE641C0BAE8000843582 /* EventsTests.swift */,
 				2307EE661C0BAE8000843582 /* Info.plist */,
+				2307EEBF1C0F2D6E00843582 /* EventManagerHostTests.swift */,
 			);
 			path = EventsTests;
+			sourceTree = "<group>";
+		};
+		2327EADD1C0F5074004AC6BC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2327EADE1C0F508B004AC6BC /* MockObject.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		2327EAE21C0F733E004AC6BC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2327EAE31C0F7347004AC6BC /* Listener.swift */,
+				2327EAE51C0F734E004AC6BC /* Handler.swift */,
+				2327EAE71C0F7358004AC6BC /* Event.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2327EAEE1C0F76FE004AC6BC /* Platforms */ = {
+			isa = PBXGroup;
+			children = (
+				2327EAEF1C0F76FE004AC6BC /* iOS */,
+				2327EAF01C0F76FE004AC6BC /* OSX */,
+			);
+			path = Platforms;
+			sourceTree = "<group>";
+		};
+		2327EAEF1C0F76FE004AC6BC /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2327EAF11C0F771C004AC6BC /* EventViewController.swift */,
+				2327EAF31C0F7749004AC6BC /* EventView.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		2327EAF01C0F76FE004AC6BC /* OSX */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OSX;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -100,9 +170,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2307EE541C0BAE8000843582 /* Events */ = {
+		2307EE541C0BAE8000843582 /* Events iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2307EE691C0BAE8000843582 /* Build configuration list for PBXNativeTarget "Events" */;
+			buildConfigurationList = 2307EE691C0BAE8000843582 /* Build configuration list for PBXNativeTarget "Events iOS" */;
 			buildPhases = (
 				2307EE501C0BAE8000843582 /* Sources */,
 				2307EE511C0BAE8000843582 /* Frameworks */,
@@ -113,7 +183,7 @@
 			);
 			dependencies = (
 			);
-			name = Events;
+			name = "Events iOS";
 			productName = Events;
 			productReference = 2307EE551C0BAE8000843582 /* Events.framework */;
 			productType = "com.apple.product-type.framework";
@@ -166,7 +236,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2307EE541C0BAE8000843582 /* Events */,
+				2307EE541C0BAE8000843582 /* Events iOS */,
 				2307EE5E1C0BAE8000843582 /* EventsTests */,
 			);
 		};
@@ -194,6 +264,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2327EAE11C0F7308004AC6BC /* EventManagerHost.swift in Sources */,
+				2307EE701C0BAE9F00843582 /* EventManager.swift in Sources */,
+				2327EAF21C0F771C004AC6BC /* EventViewController.swift in Sources */,
+				2307EEBC1C0CAB9900843582 /* Utils.swift in Sources */,
+				2327EAE61C0F734E004AC6BC /* Handler.swift in Sources */,
+				2327EAE81C0F7358004AC6BC /* Event.swift in Sources */,
+				2327EAE41C0F7347004AC6BC /* Listener.swift in Sources */,
+				2327EAF41C0F7749004AC6BC /* EventView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +280,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2307EE651C0BAE8000843582 /* EventsTests.swift in Sources */,
+				2307EEC01C0F2D6E00843582 /* EventManagerHostTests.swift in Sources */,
+				2327EADF1C0F508B004AC6BC /* MockObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +290,7 @@
 /* Begin PBXTargetDependency section */
 		2307EE621C0BAE8000843582 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2307EE541C0BAE8000843582 /* Events */;
+			target = 2307EE541C0BAE8000843582 /* Events iOS */;
 			targetProxy = 2307EE611C0BAE8000843582 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -308,6 +388,7 @@
 		2307EE6A1C0BAE8000843582 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -316,14 +397,16 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blitzagency.Events;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Events;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		2307EE6B1C0BAE8000843582 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -332,7 +415,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blitzagency.Events;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Events;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -369,13 +452,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2307EE691C0BAE8000843582 /* Build configuration list for PBXNativeTarget "Events" */ = {
+		2307EE691C0BAE8000843582 /* Build configuration list for PBXNativeTarget "Events iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2307EE6A1C0BAE8000843582 /* Debug */,
 				2307EE6B1C0BAE8000843582 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2307EE6C1C0BAE8000843582 /* Build configuration list for PBXNativeTarget "EventsTests" */ = {
 			isa = XCConfigurationList;
@@ -384,6 +468,7 @@
 				2307EE6E1C0BAE8000843582 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
