@@ -5,11 +5,11 @@ Represents an attempt to bring backbone style events to Swift.
 Delegates are fine, and they are probably more performanent, but
 it is so much faster to just keep coding than to:
 
-#. Stop coding
-#. Create a new protocol
-#. Create an implementation of that protocol
-#. Add the delegate to the object that needs it
-#. Alter your code to use the delegate
+1. Stop coding
+2. Create a new protocol
+3. Create an implementation of that protocol
+4. Add the delegate to the object that needs it
+5. Alter your code to use the delegate
 
 
 Events let you just keep going. Need to communicate between N
