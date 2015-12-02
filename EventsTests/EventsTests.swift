@@ -2,14 +2,12 @@
 //  EventsTests.swift
 //  EventsTests
 //
-//  Created by Adam Venturella on 11/29/15.
+//  Created by Adam Venturella on 12/2/15.
 //  Copyright © 2015 BLITZ. All rights reserved.
 //
 
-
 import XCTest
 @testable import Events
-
 
 class EventsTests: XCTestCase {
     
@@ -22,15 +20,8 @@ class EventsTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-
+    
     func testExample() {
-        let manager = EventManager()
-
-        manager.listenTo(manager, name: "foo"){
-            print(99)
-        }
-
-        manager.trigger("foo")
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
