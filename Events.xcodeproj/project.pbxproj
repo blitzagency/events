@@ -74,7 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				2307EE571C0BAE8000843582 /* Events */,
-				2307EE631C0BAE8000843582 /* EventsTests */,
+				2307EE631C0BAE8000843582 /* EventsTests iOS */,
 				2307EE561C0BAE8000843582 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,7 +102,7 @@
 			path = Events;
 			sourceTree = "<group>";
 		};
-		2307EE631C0BAE8000843582 /* EventsTests */ = {
+		2307EE631C0BAE8000843582 /* EventsTests iOS */ = {
 			isa = PBXGroup;
 			children = (
 				2327EADD1C0F5074004AC6BC /* Utils */,
@@ -110,6 +110,7 @@
 				2307EE661C0BAE8000843582 /* Info.plist */,
 				2307EEBF1C0F2D6E00843582 /* EventManagerHostTests.swift */,
 			);
+			name = "EventsTests iOS";
 			path = EventsTests;
 			sourceTree = "<group>";
 		};
