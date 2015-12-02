@@ -36,7 +36,7 @@
 		2307EE551C0BAE8000843582 /* Events.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Events.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2307EE581C0BAE8000843582 /* Events.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
 		2307EE5A1C0BAE8000843582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2307EE5F1C0BAE8000843582 /* EventsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2307EE5F1C0BAE8000843582 /* EventsTests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EventsTests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2307EE641C0BAE8000843582 /* EventsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTests.swift; sourceTree = "<group>"; };
 		2307EE661C0BAE8000843582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2307EE6F1C0BAE9F00843582 /* EventManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				2307EE551C0BAE8000843582 /* Events.framework */,
-				2307EE5F1C0BAE8000843582 /* EventsTests.xctest */,
+				2307EE5F1C0BAE8000843582 /* EventsTests iOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,9 +188,9 @@
 			productReference = 2307EE551C0BAE8000843582 /* Events.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		2307EE5E1C0BAE8000843582 /* EventsTests */ = {
+		2307EE5E1C0BAE8000843582 /* EventsTests iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2307EE6C1C0BAE8000843582 /* Build configuration list for PBXNativeTarget "EventsTests" */;
+			buildConfigurationList = 2307EE6C1C0BAE8000843582 /* Build configuration list for PBXNativeTarget "EventsTests iOS" */;
 			buildPhases = (
 				2307EE5B1C0BAE8000843582 /* Sources */,
 				2307EE5C1C0BAE8000843582 /* Frameworks */,
@@ -201,9 +201,9 @@
 			dependencies = (
 				2307EE621C0BAE8000843582 /* PBXTargetDependency */,
 			);
-			name = EventsTests;
+			name = "EventsTests iOS";
 			productName = EventsTests;
-			productReference = 2307EE5F1C0BAE8000843582 /* EventsTests.xctest */;
+			productReference = 2307EE5F1C0BAE8000843582 /* EventsTests iOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -237,7 +237,7 @@
 			projectRoot = "";
 			targets = (
 				2307EE541C0BAE8000843582 /* Events iOS */,
-				2307EE5E1C0BAE8000843582 /* EventsTests */,
+				2307EE5E1C0BAE8000843582 /* EventsTests iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -461,7 +461,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2307EE6C1C0BAE8000843582 /* Build configuration list for PBXNativeTarget "EventsTests" */ = {
+		2307EE6C1C0BAE8000843582 /* Build configuration list for PBXNativeTarget "EventsTests iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2307EE6D1C0BAE8000843582 /* Debug */,
