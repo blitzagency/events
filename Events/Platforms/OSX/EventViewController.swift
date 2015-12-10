@@ -11,4 +11,8 @@ import AppKit
 
 public class EventViewController: NSViewController, EventManagerHost {
     public let eventManager = EventManager()
+
+    deinit{
+        stopListening()
+    }
 }
