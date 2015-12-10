@@ -9,6 +9,6 @@
 import Foundation
 import AppKit
 
-class EventViewController: NSViewController, EventManagerHost {
-    let eventManager = EventManager()
+public class EventViewController: NSViewController, EventManagerHost {
+    public let eventManager = EventManager()
 }

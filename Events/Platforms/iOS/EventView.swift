@@ -9,6 +9,6 @@
 import Foundation
 import UIKit
 
-class EventView: UIView, EventManagerHost {
-    let eventManager = EventManager()
+public class EventView: UIView, EventManagerHost {
+    public let eventManager = EventManager()
 }
