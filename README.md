@@ -43,7 +43,8 @@ class ParentViewController: EventViewController {
     // with [unowned self] capture list
     //
     // see: https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID57
-    // Resolving Stong Reference Cycles for Closures why we do this.
+    // Resolving Stong Reference Cycles for Closures
+    // for why we do this.
     //
     // TL;DR: using an instance method like: func onBlueEvent(...)
     // strongly captures self.
