@@ -11,8 +11,8 @@ import Foundation
 
 public class Listener{
     var listeningTo: [String: Listener]
-    let publisher: EventManager
-    let subscriber: EventManager
+    unowned let publisher: EventManager
+    unowned let subscriber: EventManager
     var count = 0
 
     public init(publisher: EventManager, subscriber: EventManager, listeningTo: [String: Listener]){
