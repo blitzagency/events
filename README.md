@@ -26,6 +26,7 @@ class ParentViewController: EventViewController {
         let blue = BlueViewController(nibName: "Blue", bundle: nil)
         let red = RedViewController(nibName: "Red", bundle: nil)
 
+        // see how we define these handlers below, it's important!
         self.listenTo(blue, "some:blue:event", callback: onBlueEvent)
         self.listenTo(red, "some:red:event",  callback: onRedEvent)
 
@@ -38,13 +39,23 @@ class ParentViewController: EventViewController {
 
     // Note that it casts the values back to what you expect
     // vs NSNotification which requires manual casting at runtime
-    func onBlueEvent(sender: BlueViewController, data: Int){
+    // also note the specific construction of this handler. lazy var
+    // with [unowned self] capture list
+    //
+    // see: https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID57
+    // Resolving Stong Reference Cycles for Closures why we do this.
+    //
+    // TL;DR: using an instance method like: func onBlueEvent(...)
+    // strongly captures self.
+    lazy var onBlueEvent: (BlueViewController, Int) -> () = { [unowned self]
+        (sender, data) in
         print("\(sender): \(data)")
     }
 
     // Note that it casts the values back to what you expect
     // vs NSNotification which requires manual casting at runtime
-    func onRedEvent(sender: BlueViewController, data: Bool){
+    lazy var onRedEvent: (BlueViewController, Bool) -> () = { [unowned self]
+        (sender, data) in
         print("\(sender): \(data)")
     }
 
