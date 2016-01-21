@@ -12,6 +12,12 @@ import UIKit
 public class EventViewController: UIViewController, EventManagerHost {
     public let eventManager = EventManager()
 
+    public override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let id = segue.identifier{
+            self.trigger("segue:\(id)", data: segue.destinationViewController)
+        }
+    }
+
     deinit{
         stopListening()
     }
