@@ -172,4 +172,90 @@ class EventManagerHostTests: XCTestCase {
 
         XCTAssert(count == 2, "Expected 2 found \(count)")
     }
+
+    func testEventSelf(){
+        let pub1 = MockObject()
+        var count = 0
+
+        pub1.listenTo("foo"){
+            count++
+        }
+
+        pub1.trigger("foo")
+
+        XCTAssert(count == 1, "Expected 1 found \(count)")
+        XCTAssert(pub1.eventManager.listeners.count == 1, "Expected 1 found \(count)")
+
+        pub1.stopListening()
+        pub1.trigger("foo")
+
+        XCTAssert(count == 1, "Expected 1 found \(count)")
+        XCTAssert(pub1.eventManager.listeners.count == 0, "Expected 1 found \(count)")
+
+    }
+
+    func testEventSelfSender(){
+        let pub1 = MockObject()
+        var count = 0
+
+        pub1.listenTo("foo"){ (obj: MockObject) in
+            XCTAssert(obj === pub1)
+            count++
+        }
+
+        pub1.trigger("foo")
+
+        XCTAssert(count == 1, "Expected 1 found \(count)")
+        XCTAssert(pub1.eventManager.listeners.count == 1, "Expected 1 found \(count)")
+
+        pub1.stopListening()
+        pub1.trigger("foo")
+
+        XCTAssert(count == 1, "Expected 1 found \(count)")
+        XCTAssert(pub1.eventManager.listeners.count == 0, "Expected 1 found \(count)")
+        
+    }
+
+    func testEventSelfSenderData(){
+        let pub1 = MockObject()
+        var count = 0
+
+        pub1.listenTo("foo"){ (_, value: String) in
+            XCTAssert(value == "ollie")
+            count++
+        }
+
+        pub1.trigger("foo", data: "ollie")
+
+        XCTAssert(count == 1, "Expected 1 found \(count)")
+        XCTAssert(pub1.eventManager.listeners.count == 1, "Expected 1 found \(count)")
+
+        pub1.stopListening("foo")
+        pub1.trigger("foo")
+
+        XCTAssert(pub1.eventManager.listeners.count == 0)
+        XCTAssert(count == 1, "Expected 1 found \(count)")
+        
+    }
+
+    func testEventDataOnly(){
+//        let pub1 = MockObject()
+//        var count = 0
+//
+//        pub1.listenTo("foo"){ (value: String) in
+//            XCTAssert(value == "ollie")
+//            count++
+//        }
+//
+//        pub1.trigger("foo", data: "ollie")
+//
+//        XCTAssert(count == 1, "Expected 1 found \(count)")
+//        XCTAssert(pub1.eventManager.listeners.count == 1, "Expected 1 found \(count)")
+//
+//        pub1.stopListening("foo")
+//        pub1.trigger("foo")
+//
+//        XCTAssert(pub1.eventManager.listeners.count == 0)
+//        XCTAssert(count == 1, "Expected 1 found \(count)")
+    }
 }

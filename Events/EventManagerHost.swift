@@ -14,6 +14,24 @@ public protocol EventManagerHost{
 
 extension EventManagerHost {
 
+    public func listenTo(name: String, callback: () -> ()) -> Self{
+        eventManager.listenTo(self.eventManager, name: name, callback: callback)
+        return self
+    }
+
+    public func listenTo(name: String, callback: (Self) -> ()) -> Self{
+        eventManager.listenTo(self.eventManager, name: name, callback: callback)
+        return self
+    }
+
+    public func listenTo<Data>(name: String, callback: (Self, Data) -> ()) -> Self{
+        eventManager.listenTo(self.eventManager, name: name, callback: callback)
+        return self
+    }
+
+
+    // ----
+
     public func listenTo<Publisher where Publisher: EventManagerHost>(publisher: Publisher, _ name: String, callback: () -> ()) -> Self{
         eventManager.listenTo(publisher.eventManager, name: name, callback: callback)
         return self
@@ -28,6 +46,9 @@ extension EventManagerHost {
         eventManager.listenTo(publisher.eventManager, name: name, callback: callback)
         return self
     }
+
+
+    // ---
 
     public func listenTo<Publisher where Publisher: EventManager>(publisher: Publisher, _ name: String, callback: () -> ()) -> Self{
         eventManager.listenTo(publisher, name: name, callback: callback)
@@ -44,9 +65,17 @@ extension EventManagerHost {
         return self
     }
 
+
+    // ---
+
     public func trigger(name: String, data: Any? = nil){
         let event = Event(name: name, publisher: self, data: data)
         eventManager.trigger(event)
+    }
+
+    public func stopListening(name: String) -> Self{
+        eventManager.stopListening(self.eventManager, name: name)
+        return self
     }
 
     public func stopListening<Publisher where Publisher: EventManagerHost>(publisher: Publisher, _ name: String) -> Self{
