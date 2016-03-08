@@ -39,7 +39,7 @@ class ParentViewController: EventViewController {
         // events. Why? One of the problems with the event approach is
         // you end up litering your code with strings. Capturing the
         // the events in an Enum provides some in-code documentation
-        // about what events available from both a reading the source
+        // about what events are available from both a reading the source
         // perspective and a from an IDE code completion perspective.
         // you can still use regular strings as before, but from a
         // maintainability and ease-of-use perspective their use
