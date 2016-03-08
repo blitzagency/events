@@ -97,11 +97,10 @@ class BlueViewController: EventViewController{
     }
 
     func doSomething(){
+        trigger(ColorEvents.Blue, 36)
 
-        trigger("some:blue:event", 36)
-
-        // Using the ColorEvents Enum we could have also written this:
-        // trigger(ColorEvents.Blue, 36)
+        // Using the strings (discouraged)
+        // trigger("some:blue:event", 36)
     }
 }
 
@@ -112,10 +111,10 @@ class RedViewController : EventViewController{
     }
 
     func doSomething(){
-        trigger("some:red:event", true)
+        trigger(ColorEvents.Red, true)
 
-        // Using the ColorEvents Enum we could have also written this:
-        // trigger(ColorEvents.Red, 36)
+        // Using the strings (discouraged)
+        // trigger("some:red:event", true)
     }
 }
 ```
