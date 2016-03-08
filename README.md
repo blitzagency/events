@@ -32,16 +32,21 @@ class ParentViewController: EventViewController {
         let red = RedViewController(nibName: "Red", bundle: nil)
 
         // see how we define these handlers below, it's important!
-        listenTo(blue, "some:blue:event", callback: onBlueEvent)
-        listenTo(red, "some:red:event",  callback: onRedEvent)
+        listenTo(blue, ColorEvents.Blue, callback: onBlueEvent)
+        listenTo(red, ColorEvents.Red,  callback: onRedEvent)
 
-        // String based Enums are also supported, the above 2 listenTo
-        // could also be written like this using the ColorEvents enum
-        // to aide in providing documentation in the form of code
-        // around what events are available:
-
-        // listenTo(blue, ColorEvents.Blue, callback: onBlueEvent)
-        // listenTo(red, ColorEvents.Red,  callback: onRedEvent)
+        // String based Enums are now the preferred method to register
+        // events. Why? One of the problems with the event approach is
+        // you end up litering your code with strings. Capturing the
+        // the events in an Enum provides some in-code documentation
+        // about what events available from both a reading the source
+        // perspective and a from an IDE code completion perspective.
+        // you can still use regular strings as before, but from a
+        // maintainability and ease-of-use perspective their use
+        // is discouraged. For reference using plain strings looks
+        // like this:
+        // listenTo(blue, "some:blue:event", callback: onBlueEvent)
+        // listenTo(red, "some:red:event",  callback: onRedEvent)
 
         addChildViewController(blue)
         addChildViewController(red)
