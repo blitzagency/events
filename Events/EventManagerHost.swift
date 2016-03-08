@@ -30,6 +30,23 @@ extension EventManagerHost {
     }
 
 
+    // ---- String Enums
+
+    public func listenTo<Publisher, EventType where Publisher: EventManagerHost, EventType: RawRepresentable, EventType.RawValue == String>(publisher: Publisher, _ name: EventType, callback: () -> ()) -> Self{
+        eventManager.listenTo(publisher.eventManager, name: name.rawValue, callback: callback)
+        return self
+    }
+
+    public func listenTo<Publisher, EventType where Publisher: EventManagerHost, EventType: RawRepresentable, EventType.RawValue == String>(publisher: Publisher, _ name: EventType, callback: (Publisher) -> ()) -> Self{
+        eventManager.listenTo(publisher.eventManager, name: name.rawValue, callback: callback)
+        return self
+    }
+
+    public func listenTo<Publisher, Data, EventType where Publisher: EventManagerHost,EventType: RawRepresentable, EventType.RawValue == String>(publisher: Publisher, _ name: EventType, callback: (Publisher, Data) -> ()) -> Self{
+        eventManager.listenTo(publisher.eventManager, name: name.rawValue, callback: callback)
+        return self
+    }
+
     // ----
 
     public func listenTo<Publisher where Publisher: EventManagerHost>(publisher: Publisher, _ name: String, callback: () -> ()) -> Self{
@@ -73,6 +90,11 @@ extension EventManagerHost {
         eventManager.trigger(event)
     }
 
+    public func trigger<EventType: RawRepresentable where EventType.RawValue == String>(name: EventType, data: Any? = nil){
+        let event = Event(name: name.rawValue, publisher: self, data: data)
+        eventManager.trigger(event)
+    }
+
     public func stopListening(name: String) -> Self{
         eventManager.stopListening(self.eventManager, name: name)
         return self
@@ -90,6 +112,18 @@ extension EventManagerHost {
 
     public func stopListening() -> Self{
         eventManager.stopListening()
+        return self
+    }
+
+    // --- String Enums
+
+    public func stopListening<EventType: RawRepresentable where EventType.RawValue == String>(name: EventType) -> Self{
+        eventManager.stopListening(self.eventManager, name: name.rawValue)
+        return self
+    }
+
+    public func stopListening<Publisher, EventType where Publisher: EventManagerHost, EventType: RawRepresentable, EventType.RawValue == String>(publisher: Publisher, _ name: EventType) -> Self{
+        eventManager.stopListening(publisher.eventManager, name: name.rawValue)
         return self
     }
 }
