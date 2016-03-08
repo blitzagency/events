@@ -19,6 +19,11 @@ events:
 ```swift
 import Events
 
+enum ColorEvents: String{
+    case Blue = "some:blue:event"
+    case Red = "some:red:event"
+}
+
 class ParentViewController: EventViewController {
 
     func viewDidLoad(){
@@ -27,8 +32,16 @@ class ParentViewController: EventViewController {
         let red = RedViewController(nibName: "Red", bundle: nil)
 
         // see how we define these handlers below, it's important!
-        self.listenTo(blue, "some:blue:event", callback: onBlueEvent)
-        self.listenTo(red, "some:red:event",  callback: onRedEvent)
+        listenTo(blue, "some:blue:event", callback: onBlueEvent)
+        listenTo(red, "some:red:event",  callback: onRedEvent)
+
+        // String based Enums are also supported, the above 2 listenTo
+        // could also be written like this using the ColorEvents enum
+        // to aide in providing documentation in the form of code
+        // around what events are available:
+
+        // listenTo(blue, ColorEvents.Blue, callback: onBlueEvent)
+        // listenTo(red, ColorEvents.Red,  callback: onRedEvent)
 
         addChildViewController(blue)
         addChildViewController(red)
@@ -64,7 +77,11 @@ class ParentViewController: EventViewController {
         super.viewDidDisappear(animated)
 
         // free the listeners
-        self.stopListening()
+        stopListening()
+
+        // you can also use String Enums to stopListening
+        // stopListening(blue, ColorEvents.Blue)
+        // stopListening(red, ColorEvents.Red)
     }
 }
 
@@ -75,7 +92,11 @@ class BlueViewController: EventViewController{
     }
 
     func doSomething(){
-        self.trigger("some:blue:event", 36)
+
+        trigger("some:blue:event", 36)
+
+        // Using the ColorEvents Enum we could have also written this:
+        // trigger(ColorEvents.Blue, 36)
     }
 }
 
@@ -86,7 +107,10 @@ class RedViewController : EventViewController{
     }
 
     func doSomething(){
-        self.trigger("some:red:event", true)
+        trigger("some:red:event", true)
+
+        // Using the ColorEvents Enum we could have also written this:
+        // trigger(ColorEvents.Red, 36)
     }
 }
 ```
