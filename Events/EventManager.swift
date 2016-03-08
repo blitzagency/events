@@ -32,10 +32,15 @@ public class EventManager{
     }
 
     public func wrapCallback<Publisher, Data>(callback: (Publisher, Data) -> () ) -> (Event) -> (){
-        return { evt in
+        return { [unowned self] evt in
             let publisher = evt.publisher as! Publisher
-            let data = evt.data as! Data
-            callback(publisher, data)
+            if let number = evt.data as? NSNumber{
+                let data: Data = self.convert(number)
+                callback(publisher, data)
+            } else{
+                let data = evt.data as! Data
+                callback(publisher, data)
+            }
         }
     }
 
@@ -161,6 +166,34 @@ public class EventManager{
     public func stopListening(){
         listeningTo.forEach { (key, listener) -> () in
             stopListening(listener.publisher)
+        }
+    }
+
+    public func convert<T>(value: NSNumber) -> T{
+
+        switch T.self{
+        case is Bool.Type:
+            return value.boolValue as! T
+        case is NSNumber.Type:
+            return value as! T
+        case is Double.Type:
+            return value.doubleValue as! T
+        case is Int.Type:
+            return value.integerValue as! T
+        case is Int32.Type:
+            return value.intValue as! T
+        case is UInt.Type:
+            return value.unsignedIntegerValue as! T
+        case is UInt64.Type:
+            return value.unsignedLongLongValue as! T
+        case is UInt32.Type:
+            return value.unsignedIntValue as! T
+        case is Float64.Type: fallthrough
+        case is Float32.Type: fallthrough
+        case is Float.Type:
+            return value.floatValue as! T
+        default:
+            return 0 as! T
         }
     }
 }
