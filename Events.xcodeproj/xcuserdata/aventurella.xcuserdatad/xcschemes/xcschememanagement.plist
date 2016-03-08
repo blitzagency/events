@@ -7,12 +7,17 @@
 		<key>Events  OSX.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>6</integer>
+		</dict>
+		<key>Events Watch.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>Events iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>4</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -33,6 +38,16 @@
 			<true/>
 		</dict>
 		<key>2327EB1E1C0F7BCF004AC6BC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2347D0851C5C1F6300B28395</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2347D09C1C5C1F9100B28395</key>
 		<dict>
 			<key>primary</key>
 			<true/>

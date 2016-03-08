@@ -30,6 +30,16 @@
 		2327EB361C0F7CCB004AC6BC /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EB351C0F7CCB004AC6BC /* EventView.swift */; };
 		2327EB391C0F7D6D004AC6BC /* EventManagerHostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2307EEBF1C0F2D6E00843582 /* EventManagerHostTests.swift */; };
 		2327EB3A1C0F7D91004AC6BC /* MockObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EADE1C0F508B004AC6BC /* MockObject.swift */; };
+		2347D0A01C5C1F9100B28395 /* Events.h in Headers */ = {isa = PBXBuildFile; fileRef = 2347D09F1C5C1F9100B28395 /* Events.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2347D0A51C5C1FD800B28395 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2307EE6F1C0BAE9F00843582 /* EventManager.swift */; };
+		2347D0A61C5C1FDB00B28395 /* EventManagerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EAE01C0F7308004AC6BC /* EventManagerHost.swift */; };
+		2347D0A71C5C1FE000B28395 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2307EEBB1C0CAB9900843582 /* Utils.swift */; };
+		2347D0A81C5C1FE600B28395 /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EAE31C0F7347004AC6BC /* Listener.swift */; };
+		2347D0A91C5C1FE900B28395 /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EAE51C0F734E004AC6BC /* Handler.swift */; };
+		2347D0AA1C5C1FEC00B28395 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EAE71C0F7358004AC6BC /* Event.swift */; };
+		2347D0BC1C5C214D00B28395 /* Events.h in Headers */ = {isa = PBXBuildFile; fileRef = 2307EE581C0BAE8000843582 /* Events.h */; };
+		23A18F901C623E660081A11A /* NSNumberConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A18F8F1C623E660081A11A /* NSNumberConversionTests.swift */; };
+		23A18F911C623E660081A11A /* NSNumberConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A18F8F1C623E660081A11A /* NSNumberConversionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +79,11 @@
 		2327EB1F1C0F7BCF004AC6BC /* EventsTests OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EventsTests OSX.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2327EB331C0F7CAE004AC6BC /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		2327EB351C0F7CCB004AC6BC /* EventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		2347D0971C5C1F6300B28395 /* Events iOS copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Events iOS copy-Info.plist"; path = "/Users/aventurella/github/Events/Events iOS copy-Info.plist"; sourceTree = "<absolute>"; };
+		2347D09D1C5C1F9100B28395 /* Events.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Events.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2347D09F1C5C1F9100B28395 /* Events.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
+		2347D0A11C5C1F9100B28395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23A18F8F1C623E660081A11A /* NSNumberConversionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberConversionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +117,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2347D0991C5C1F9100B28395 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -110,7 +132,9 @@
 			children = (
 				2307EE571C0BAE8000843582 /* Events */,
 				2307EE631C0BAE8000843582 /* EventsTests */,
+				2347D09E1C5C1F9100B28395 /* Events */,
 				2307EE561C0BAE8000843582 /* Products */,
+				2347D0971C5C1F6300B28395 /* Events iOS copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +145,7 @@
 				2307EE5F1C0BAE8000843582 /* EventsTests iOS.xctest */,
 				2327EB161C0F7BCF004AC6BC /* Events.framework */,
 				2327EB1F1C0F7BCF004AC6BC /* EventsTests OSX.xctest */,
+				2347D09D1C5C1F9100B28395 /* Events.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,6 +172,7 @@
 				2327EADD1C0F5074004AC6BC /* Utils */,
 				2307EE661C0BAE8000843582 /* Info.plist */,
 				2307EEBF1C0F2D6E00843582 /* EventManagerHostTests.swift */,
+				23A18F8F1C623E660081A11A /* NSNumberConversionTests.swift */,
 			);
 			path = EventsTests;
 			sourceTree = "<group>";
@@ -210,6 +236,15 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
+		2347D09E1C5C1F9100B28395 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				2347D09F1C5C1F9100B28395 /* Events.h */,
+				2347D0A11C5C1F9100B28395 /* Info.plist */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -225,6 +260,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2347D0BC1C5C214D00B28395 /* Events.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2347D09A1C5C1F9100B28395 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2347D0A01C5C1F9100B28395 /* Events.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +347,24 @@
 			productReference = 2327EB1F1C0F7BCF004AC6BC /* EventsTests OSX.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		2347D09C1C5C1F9100B28395 /* Events Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2347D0A21C5C1F9100B28395 /* Build configuration list for PBXNativeTarget "Events Watch" */;
+			buildPhases = (
+				2347D0981C5C1F9100B28395 /* Sources */,
+				2347D0991C5C1F9100B28395 /* Frameworks */,
+				2347D09A1C5C1F9100B28395 /* Headers */,
+				2347D09B1C5C1F9100B28395 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Events Watch";
+			productName = Events;
+			productReference = 2347D09D1C5C1F9100B28395 /* Events.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -325,6 +387,9 @@
 					2327EB1E1C0F7BCF004AC6BC = {
 						CreatedOnToolsVersion = 7.1.1;
 					};
+					2347D09C1C5C1F9100B28395 = {
+						CreatedOnToolsVersion = 7.2;
+					};
 				};
 			};
 			buildConfigurationList = 2307EE4F1C0BAE8000843582 /* Build configuration list for PBXProject "Events" */;
@@ -343,6 +408,7 @@
 				2307EE5E1C0BAE8000843582 /* EventsTests iOS */,
 				2327EB151C0F7BCF004AC6BC /* Events OSX */,
 				2327EB1E1C0F7BCF004AC6BC /* EventsTests OSX */,
+				2347D09C1C5C1F9100B28395 /* Events Watch */,
 			);
 		};
 /* End PBXProject section */
@@ -376,6 +442,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2347D09B1C5C1F9100B28395 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -399,6 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2307EEC01C0F2D6E00843582 /* EventManagerHostTests.swift in Sources */,
+				23A18F901C623E660081A11A /* NSNumberConversionTests.swift in Sources */,
 				2327EADF1C0F508B004AC6BC /* MockObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,7 +497,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				2327EB3A1C0F7D91004AC6BC /* MockObject.swift in Sources */,
+				23A18F911C623E660081A11A /* NSNumberConversionTests.swift in Sources */,
 				2327EB391C0F7D6D004AC6BC /* EventManagerHostTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2347D0981C5C1F9100B28395 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2347D0A61C5C1FDB00B28395 /* EventManagerHost.swift in Sources */,
+				2347D0A51C5C1FD800B28395 /* EventManager.swift in Sources */,
+				2347D0A71C5C1FE000B28395 /* Utils.swift in Sources */,
+				2347D0A91C5C1FE900B28395 /* Handler.swift in Sources */,
+				2347D0AA1C5C1FEC00B28395 /* Event.swift in Sources */,
+				2347D0A81C5C1FE600B28395 /* Listener.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +749,46 @@
 			};
 			name = Release;
 		};
+		2347D0A31C5C1F9100B28395 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Events/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.blitzagency.Events;
+				PRODUCT_NAME = Events;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		2347D0A41C5C1F9100B28395 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Events/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.blitzagency.Events;
+				PRODUCT_NAME = Events;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -705,6 +833,15 @@
 			buildConfigurations = (
 				2327EB2B1C0F7BCF004AC6BC /* Debug */,
 				2327EB2C1C0F7BCF004AC6BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2347D0A21C5C1F9100B28395 /* Build configuration list for PBXNativeTarget "Events Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2347D0A31C5C1F9100B28395 /* Debug */,
+				2347D0A41C5C1F9100B28395 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
