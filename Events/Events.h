@@ -2,8 +2,8 @@
 //  Events.h
 //  Events
 //
-//  Created by Adam Venturella on 12/2/15.
-//  Copyright © 2015 BLITZ. All rights reserved.
+//  Created by Adam Venturella on 1/29/16.
+//  Copyright © 2016 BLITZ. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
