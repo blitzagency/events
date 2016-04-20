@@ -94,19 +94,23 @@ class EventManagerHostTests: XCTestCase {
     func testEventStopListeningPubName(){
         let pub = MockObject()
         let sub = MockObject()
+        let done = expectationWithDescription("done")
         var count = 0
 
         sub.listenTo(pub, "foo"){
-            count++
+            count = count + 1
         }
 
         pub.trigger("foo")
-        XCTAssert(count == 1, "Expected 1 found \(count)")
-
         sub.stopListening(pub, "foo")
         pub.trigger("foo")
 
-        XCTAssert(count == 1, "Expected 1 found \(count)")
+        delay(0.1){
+            XCTAssert(count == 1, "Expected 1 found \(count)")
+            done.fulfill()
+        }
+
+        waitForExpectationsWithTimeout(3.0, handler: nil)
     }
 
     func testEventStopListeningPub(){
@@ -114,127 +118,153 @@ class EventManagerHostTests: XCTestCase {
         let pub2 = MockObject()
         let sub1 = MockObject()
         let sub2 = MockObject()
+        let done = expectationWithDescription("done")
         var count = 0
 
         sub1.listenTo(pub1, "foo"){
-            count++
+            count = count + 1
         }
 
         sub1.listenTo(pub1, "bar"){
-            count++
+            count = count + 1
         }
 
         // should remain after stopLlistening to pub1
 
         sub1.listenTo(pub2, "foo"){
-            count++
+            count = count + 1
         }
 
         sub2.listenTo(pub1, "foo"){
-            count++
+            count = count + 1
         }
 
         pub1.trigger("foo")
         pub1.trigger("bar")
         pub2.trigger("foo")
 
-        XCTAssert(count == 4, "Expected 4 found \(count)")
-
         sub1.stopListening(pub1)
+
         pub1.trigger("foo")
         pub1.trigger("bar")
         pub2.trigger("foo")
 
-        XCTAssert(count == 6, "Expected 6 found \(count)")
+        delay(0.1){
+            XCTAssert(count == 6, "Expected 6 found \(count)")
+            done.fulfill()
+        }
+
+        waitForExpectationsWithTimeout(3.0, handler: nil)
     }
 
     func testEventStopListening(){
         let pub1 = MockObject()
         let sub1 = MockObject()
+        let done = expectationWithDescription("done")
         var count = 0
 
         sub1.listenTo(pub1, "foo"){
-            count++
+            count = count + 1
         }
 
         sub1.listenTo(pub1, "bar"){
-            count++
+            count = count + 1
         }
 
         pub1.trigger("foo")
         pub1.trigger("bar")
 
-        XCTAssert(count == 2, "Expected 2 found \(count)")
-
         sub1.stopListening()
+
         pub1.trigger("foo")
         pub1.trigger("bar")
 
-        XCTAssert(count == 2, "Expected 2 found \(count)")
+        delay(0.1){
+            XCTAssert(count == 2, "Expected 2 found \(count)")
+            done.fulfill()
+        }
+
+        waitForExpectationsWithTimeout(3.0, handler: nil)
     }
 
     func testEventSelf(){
         let pub1 = MockObject()
+        let done = expectationWithDescription("done")
         var count = 0
 
         pub1.listenTo("foo"){
-            count++
+            count = count + 1
         }
 
         pub1.trigger("foo")
 
-        XCTAssert(count == 1, "Expected 1 found \(count)")
-        XCTAssert(pub1.eventManager.listeners.count == 1, "Expected 1 found \(count)")
 
         pub1.stopListening()
         pub1.trigger("foo")
 
-        XCTAssert(count == 1, "Expected 1 found \(count)")
-        XCTAssert(pub1.eventManager.listeners.count == 0, "Expected 1 found \(count)")
+        delay(0.1){
+
+            XCTAssert(count == 1, "Expected 1 found \(count)")
+            XCTAssert(pub1.eventManager.listeners.count == 0, "Expected 1 found \(count)")
+            done.fulfill()
+        }
+
+        waitForExpectationsWithTimeout(3.0, handler: nil)
 
     }
 
     func testEventSelfSender(){
         let pub1 = MockObject()
+        let done = expectationWithDescription("done")
         var count = 0
 
         pub1.listenTo("foo"){ (obj: MockObject) in
             XCTAssert(obj === pub1)
-            count++
+            count = count + 1
         }
 
         pub1.trigger("foo")
-
-        XCTAssert(count == 1, "Expected 1 found \(count)")
-        XCTAssert(pub1.eventManager.listeners.count == 1, "Expected 1 found \(count)")
 
         pub1.stopListening()
         pub1.trigger("foo")
 
-        XCTAssert(count == 1, "Expected 1 found \(count)")
-        XCTAssert(pub1.eventManager.listeners.count == 0, "Expected 1 found \(count)")
-        
+
+        delay(0.1){
+            XCTAssert(count == 1, "Expected 1 found \(count)")
+            XCTAssert(pub1.eventManager.listeners.count == 0, "Expected 1 found \(count)")
+            done.fulfill()
+        }
+
+        waitForExpectationsWithTimeout(3.0, handler: nil)
     }
 
     func testEventSelfSenderData(){
         let pub1 = MockObject()
+        let done = expectationWithDescription("done")
         var count = 0
 
         pub1.listenTo("foo"){ (_, value: String) in
             XCTAssert(value == "ollie")
-            count++
+            count = count + 1
         }
 
         pub1.trigger("foo", data: "ollie")
 
-        XCTAssert(count == 1, "Expected 1 found \(count)")
-        XCTAssert(pub1.eventManager.listeners.count == 1, "Expected 1 found \(count)")
+        delay(0.1){
+            XCTAssert(count == 1, "Expected 1 found \(count)")
+            XCTAssert(pub1.eventManager.listeners.count == 1, "Expected 1 found \(count)")
 
-        pub1.stopListening("foo")
-        pub1.trigger("foo")
+            pub1.stopListening("foo")
+            pub1.trigger("foo")
 
-        XCTAssert(pub1.eventManager.listeners.count == 0)
-        XCTAssert(count == 1, "Expected 1 found \(count)")
+            delay(0.1){
+                XCTAssert(pub1.eventManager.listeners.count == 0)
+                XCTAssert(count == 1, "Expected 1 found \(count)")
+                done.fulfill()
+            }
+        }
+
+        waitForExpectationsWithTimeout(3.0, handler: nil)
         
     }
 
