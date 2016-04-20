@@ -118,3 +118,36 @@ class RedViewController : EventViewController{
     }
 }
 ```
+
+### Scheduling Callbacks on an Alternate Dispatch Queue:
+
+```swift
+import UIKit
+import Events
+
+enum ColorEvents: String{
+    case Blue = "some:blue:event"
+    case Red = "some:red:event"
+}
+
+/// This is all an EventViewController really is
+/// one instance variable: eventManager
+class ParentViewController: UIViewController {
+    public let eventManager = EventManager()
+
+    func viewDidLoad(){
+        super.viewDidLoad()
+        // let's have our callback not execute
+        // on the main thread. Works exactly the same
+        // you just specify the extra `queue:` arg.
+        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        listenTo(somePublisher, ColorEvents.Blue, queue: queue callback: onBlueEvent)
+    }
+
+    lazy var onBlueEvent: (OurPublisherType, Int) -> () = { [unowned self]
+        (sender, data) in
+        // HEY-O! NOT ON THE MAIN THREAD!
+        print("\(sender): \(data)")
+    }
+}
+```
