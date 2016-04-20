@@ -38,6 +38,8 @@
 		2347D0A91C5C1FE900B28395 /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EAE51C0F734E004AC6BC /* Handler.swift */; };
 		2347D0AA1C5C1FEC00B28395 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EAE71C0F7358004AC6BC /* Event.swift */; };
 		2347D0BC1C5C214D00B28395 /* Events.h in Headers */ = {isa = PBXBuildFile; fileRef = 2307EE581C0BAE8000843582 /* Events.h */; };
+		237441B61CC7D6E90001CFF4 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237441B41CC7D6920001CFF4 /* Delay.swift */; };
+		237441B71CC7D6E90001CFF4 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237441B41CC7D6920001CFF4 /* Delay.swift */; };
 		23A18F901C623E660081A11A /* NSNumberConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A18F8F1C623E660081A11A /* NSNumberConversionTests.swift */; };
 		23A18F911C623E660081A11A /* NSNumberConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A18F8F1C623E660081A11A /* NSNumberConversionTests.swift */; };
 /* End PBXBuildFile section */
@@ -83,6 +85,7 @@
 		2347D09D1C5C1F9100B28395 /* Events.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Events.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2347D09F1C5C1F9100B28395 /* Events.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
 		2347D0A11C5C1F9100B28395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		237441B41CC7D6920001CFF4 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
 		23A18F8F1C623E660081A11A /* NSNumberConversionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberConversionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				2327EADE1C0F508B004AC6BC /* MockObject.swift */,
+				237441B41CC7D6920001CFF4 /* Delay.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -472,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2307EEC01C0F2D6E00843582 /* EventManagerHostTests.swift in Sources */,
+				237441B61CC7D6E90001CFF4 /* Delay.swift in Sources */,
 				23A18F901C623E660081A11A /* NSNumberConversionTests.swift in Sources */,
 				2327EADF1C0F508B004AC6BC /* MockObject.swift in Sources */,
 			);
@@ -497,6 +502,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2327EB3A1C0F7D91004AC6BC /* MockObject.swift in Sources */,
+				237441B71CC7D6E90001CFF4 /* Delay.swift in Sources */,
 				23A18F911C623E660081A11A /* NSNumberConversionTests.swift in Sources */,
 				2327EB391C0F7D6D004AC6BC /* EventManagerHostTests.swift in Sources */,
 			);
