@@ -132,7 +132,7 @@ enum ColorEvents: String{
 
 /// This is all an EventViewController really is
 /// one instance variable: eventManager
-class ParentViewController: UIViewController {
+class ParentViewController: UIViewController, EventManagerHost {
     public let eventManager = EventManager()
 
     func viewDidLoad(){
