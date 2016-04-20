@@ -30,7 +30,7 @@ public class EventViewClick: EventView{
     }
 
     func initClickGesture(){
-        let clickGesture = UITapGestureRecognizer(target: self, action: "onClick:")
+        let clickGesture = UITapGestureRecognizer(target: self, action: #selector(EventViewClick.onClick(_:)))
         addGestureRecognizer(clickGesture)
     }
 
