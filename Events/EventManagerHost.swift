@@ -189,7 +189,7 @@ extension EventManagerHost {
     ///
     public func trigger(name: String, data: Any? = nil){
         let event = Event(name: name, publisher: self, data: data)
-        eventManager.trigger(event)
+        trigger(event)
     }
 
     /// Trigger an event using RawRepresentable String Enum as the EventType
@@ -202,9 +202,23 @@ extension EventManagerHost {
     ///
     public func trigger<EventType: RawRepresentable where EventType.RawValue == String>(name: EventType, data: Any? = nil){
         let event = Event(name: name.rawValue, publisher: self, data: data)
-        eventManager.trigger(event)
+        trigger(event)
     }
 
+    /// Trigger an event using an Event object
+    /// 
+    /// The other 2 forms of trigger automatically
+    /// construct the Event object for you and send
+    /// it to this method
+    ///
+    ///
+    /// ```
+    /// trigger(myEvent)
+    /// ```
+    ///
+    public func trigger(event: Event){
+        eventManager.trigger(event)
+    }
 
     /// Stop listening to events on `self` for `name`
     ///
