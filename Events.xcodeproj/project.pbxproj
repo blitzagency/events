@@ -12,6 +12,22 @@
 		2307EE701C0BAE9F00843582 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2307EE6F1C0BAE9F00843582 /* EventManager.swift */; };
 		2307EEBC1C0CAB9900843582 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2307EEBB1C0CAB9900843582 /* Utils.swift */; };
 		2307EEC01C0F2D6E00843582 /* EventManagerHostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2307EEBF1C0F2D6E00843582 /* EventManagerHostTests.swift */; };
+		230A0B311CCEAD9D00BCA5CD /* EventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A0B2C1CCEAD9D00BCA5CD /* EventBus.swift */; };
+		230A0B321CCEAD9D00BCA5CD /* EventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A0B2C1CCEAD9D00BCA5CD /* EventBus.swift */; };
+		230A0B331CCEAD9D00BCA5CD /* EventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A0B2C1CCEAD9D00BCA5CD /* EventBus.swift */; };
+		230A0B341CCEAD9D00BCA5CD /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A0B2D1CCEAD9D00BCA5CD /* Channel.swift */; };
+		230A0B351CCEAD9D00BCA5CD /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A0B2D1CCEAD9D00BCA5CD /* Channel.swift */; };
+		230A0B361CCEAD9D00BCA5CD /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A0B2D1CCEAD9D00BCA5CD /* Channel.swift */; };
+		230A0B371CCEAD9D00BCA5CD /* ChannelDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A0B2E1CCEAD9D00BCA5CD /* ChannelDriver.swift */; };
+		230A0B381CCEAD9D00BCA5CD /* ChannelDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A0B2E1CCEAD9D00BCA5CD /* ChannelDriver.swift */; };
+		230A0B391CCEAD9D00BCA5CD /* ChannelDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A0B2E1CCEAD9D00BCA5CD /* ChannelDriver.swift */; };
+		230A0B3A1CCEAD9D00BCA5CD /* WatchDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A0B2F1CCEAD9D00BCA5CD /* WatchDriver.swift */; };
+		230A0B3C1CCEAD9D00BCA5CD /* WatchDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A0B2F1CCEAD9D00BCA5CD /* WatchDriver.swift */; };
+		230A0B3D1CCEAD9D00BCA5CD /* LocalDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A0B301CCEAD9D00BCA5CD /* LocalDriver.swift */; };
+		230A0B3E1CCEAD9D00BCA5CD /* LocalDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A0B301CCEAD9D00BCA5CD /* LocalDriver.swift */; };
+		230A0B3F1CCEAD9D00BCA5CD /* LocalDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A0B301CCEAD9D00BCA5CD /* LocalDriver.swift */; };
+		230A0B411CCEAE3D00BCA5CD /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230A0B401CCEAE3D00BCA5CD /* WatchConnectivity.framework */; };
+		230A0B431CCEAE5700BCA5CD /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230A0B421CCEAE5700BCA5CD /* WatchConnectivity.framework */; };
 		2327EADF1C0F508B004AC6BC /* MockObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EADE1C0F508B004AC6BC /* MockObject.swift */; };
 		2327EAE11C0F7308004AC6BC /* EventManagerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EAE01C0F7308004AC6BC /* EventManagerHost.swift */; };
 		2327EAE41C0F7347004AC6BC /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EAE31C0F7347004AC6BC /* Listener.swift */; };
@@ -37,7 +53,7 @@
 		2347D0A81C5C1FE600B28395 /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EAE31C0F7347004AC6BC /* Listener.swift */; };
 		2347D0A91C5C1FE900B28395 /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EAE51C0F734E004AC6BC /* Handler.swift */; };
 		2347D0AA1C5C1FEC00B28395 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EAE71C0F7358004AC6BC /* Event.swift */; };
-		2347D0BC1C5C214D00B28395 /* Events.h in Headers */ = {isa = PBXBuildFile; fileRef = 2307EE581C0BAE8000843582 /* Events.h */; };
+		2347D0BC1C5C214D00B28395 /* Events.h in Headers */ = {isa = PBXBuildFile; fileRef = 2307EE581C0BAE8000843582 /* Events.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		237441B61CC7D6E90001CFF4 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237441B41CC7D6920001CFF4 /* Delay.swift */; };
 		237441B71CC7D6E90001CFF4 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237441B41CC7D6920001CFF4 /* Delay.swift */; };
 		23A18F901C623E660081A11A /* NSNumberConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A18F8F1C623E660081A11A /* NSNumberConversionTests.swift */; };
@@ -70,6 +86,13 @@
 		2307EE6F1C0BAE9F00843582 /* EventManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
 		2307EEBB1C0CAB9900843582 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		2307EEBF1C0F2D6E00843582 /* EventManagerHostTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManagerHostTests.swift; sourceTree = "<group>"; };
+		230A0B2C1CCEAD9D00BCA5CD /* EventBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventBus.swift; sourceTree = "<group>"; };
+		230A0B2D1CCEAD9D00BCA5CD /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		230A0B2E1CCEAD9D00BCA5CD /* ChannelDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelDriver.swift; sourceTree = "<group>"; };
+		230A0B2F1CCEAD9D00BCA5CD /* WatchDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchDriver.swift; sourceTree = "<group>"; };
+		230A0B301CCEAD9D00BCA5CD /* LocalDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDriver.swift; sourceTree = "<group>"; };
+		230A0B401CCEAE3D00BCA5CD /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
+		230A0B421CCEAE5700BCA5CD /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.2.sdk/System/Library/Frameworks/WatchConnectivity.framework; sourceTree = DEVELOPER_DIR; };
 		2327EADE1C0F508B004AC6BC /* MockObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockObject.swift; sourceTree = "<group>"; };
 		2327EAE01C0F7308004AC6BC /* EventManagerHost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManagerHost.swift; sourceTree = "<group>"; };
 		2327EAE31C0F7347004AC6BC /* Listener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listener.swift; sourceTree = "<group>"; };
@@ -94,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				230A0B411CCEAE3D00BCA5CD /* WatchConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				230A0B431CCEAE5700BCA5CD /* WatchConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +181,7 @@
 		2307EE571C0BAE8000843582 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				230A0B2B1CCEAD8A00BCA5CD /* EventBus */,
 				2327EAEE1C0F76FE004AC6BC /* Platforms */,
 				2327EAE21C0F733E004AC6BC /* Models */,
 				2307EE581C0BAE8000843582 /* Events.h */,
@@ -180,6 +206,42 @@
 			path = EventsTests;
 			sourceTree = "<group>";
 		};
+		230A0B2B1CCEAD8A00BCA5CD /* EventBus */ = {
+			isa = PBXGroup;
+			children = (
+				230A0B2C1CCEAD9D00BCA5CD /* EventBus.swift */,
+				230A0B2D1CCEAD9D00BCA5CD /* Channel.swift */,
+				230A0B2E1CCEAD9D00BCA5CD /* ChannelDriver.swift */,
+				230A0B2F1CCEAD9D00BCA5CD /* WatchDriver.swift */,
+				230A0B301CCEAD9D00BCA5CD /* LocalDriver.swift */,
+			);
+			path = EventBus;
+			sourceTree = "<group>";
+		};
+		230A0B451CCEB31800BCA5CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				230A0B401CCEAE3D00BCA5CD /* WatchConnectivity.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		230A0B461CCEB33900BCA5CD /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				230A0B471CCEB33F00BCA5CD /* Frameworks */,
+			);
+			path = watchOS;
+			sourceTree = "<group>";
+		};
+		230A0B471CCEB33F00BCA5CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				230A0B421CCEAE5700BCA5CD /* WatchConnectivity.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2327EADD1C0F5074004AC6BC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +264,7 @@
 		2327EAEE1C0F76FE004AC6BC /* Platforms */ = {
 			isa = PBXGroup;
 			children = (
+				230A0B461CCEB33900BCA5CD /* watchOS */,
 				2327EAEF1C0F76FE004AC6BC /* iOS */,
 				2327EAF01C0F76FE004AC6BC /* OSX */,
 			);
@@ -211,6 +274,7 @@
 		2327EAEF1C0F76FE004AC6BC /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				230A0B451CCEB31800BCA5CD /* Frameworks */,
 				2327EAF11C0F771C004AC6BC /* EventViewController.swift */,
 				2327EAF31C0F7749004AC6BC /* EventView.swift */,
 			);
@@ -461,9 +525,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2327EAE11C0F7308004AC6BC /* EventManagerHost.swift in Sources */,
+				230A0B371CCEAD9D00BCA5CD /* ChannelDriver.swift in Sources */,
+				230A0B341CCEAD9D00BCA5CD /* Channel.swift in Sources */,
+				230A0B3D1CCEAD9D00BCA5CD /* LocalDriver.swift in Sources */,
 				2307EE701C0BAE9F00843582 /* EventManager.swift in Sources */,
 				2327EAF21C0F771C004AC6BC /* EventViewController.swift in Sources */,
 				2307EEBC1C0CAB9900843582 /* Utils.swift in Sources */,
+				230A0B311CCEAD9D00BCA5CD /* EventBus.swift in Sources */,
+				230A0B3A1CCEAD9D00BCA5CD /* WatchDriver.swift in Sources */,
 				2327EAE61C0F734E004AC6BC /* Handler.swift in Sources */,
 				2327EAE81C0F7358004AC6BC /* Event.swift in Sources */,
 				2327EAE41C0F7347004AC6BC /* Listener.swift in Sources */,
@@ -487,9 +556,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2327EB2F1C0F7C8E004AC6BC /* EventManagerHost.swift in Sources */,
+				230A0B381CCEAD9D00BCA5CD /* ChannelDriver.swift in Sources */,
+				230A0B351CCEAD9D00BCA5CD /* Channel.swift in Sources */,
+				230A0B3E1CCEAD9D00BCA5CD /* LocalDriver.swift in Sources */,
 				2327EB2E1C0F7C8E004AC6BC /* EventManager.swift in Sources */,
 				2327EB341C0F7CAE004AC6BC /* EventViewController.swift in Sources */,
 				2327EB2D1C0F7C89004AC6BC /* Utils.swift in Sources */,
+				230A0B321CCEAD9D00BCA5CD /* EventBus.swift in Sources */,
 				2327EB311C0F7C97004AC6BC /* Handler.swift in Sources */,
 				2327EB321C0F7C97004AC6BC /* Event.swift in Sources */,
 				2327EB301C0F7C97004AC6BC /* Listener.swift in Sources */,
@@ -513,10 +586,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2347D0A61C5C1FDB00B28395 /* EventManagerHost.swift in Sources */,
+				230A0B3F1CCEAD9D00BCA5CD /* LocalDriver.swift in Sources */,
+				230A0B361CCEAD9D00BCA5CD /* Channel.swift in Sources */,
 				2347D0A51C5C1FD800B28395 /* EventManager.swift in Sources */,
 				2347D0A71C5C1FE000B28395 /* Utils.swift in Sources */,
 				2347D0A91C5C1FE900B28395 /* Handler.swift in Sources */,
 				2347D0AA1C5C1FEC00B28395 /* Event.swift in Sources */,
+				230A0B331CCEAD9D00BCA5CD /* EventBus.swift in Sources */,
+				230A0B3C1CCEAD9D00BCA5CD /* WatchDriver.swift in Sources */,
+				230A0B391CCEAD9D00BCA5CD /* ChannelDriver.swift in Sources */,
 				2347D0A81C5C1FE600B28395 /* Listener.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -637,6 +715,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Events/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blitzagency.Events;
 				PRODUCT_NAME = Events;
@@ -656,6 +735,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Events/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blitzagency.Events;
 				PRODUCT_NAME = Events;
