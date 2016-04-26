@@ -10,7 +10,7 @@ import Foundation
 
 
 public class LocalDriver: ChannelDriver {
-    public var channels = [String: Channel]()
+    public var channels = [String: LocalChannel]()
     
     public init(){
 

@@ -8,20 +8,38 @@
 
 import Foundation
 
+
+class ChannelDriverThunk<SendType>: ChannelDriver{
+    var channels = [String: Channel<SendType>]()
+
+    private let _send : (String, String, SendType?) -> ()
+
+    init<Driver: ChannelDriver where Driver.SendType == SendType>(driver: Driver){
+        _send = driver.send
+    }
+
+    func send(channel channel: String, name: String, data: SendType? = nil){
+        _send(channel, name, data)
+    }
+
+}
+
+
 public protocol ChannelDriver: class{
-    var channels: [String: Channel] {get set}
-    func send(channel channel: String, name: String, data: Any?)
+    associatedtype SendType
+    var channels: [String: Channel<SendType>] {get set}
+    func send(channel channel: String, name: String, data: SendType?)
 }
 
 extension ChannelDriver{
-    public func get(key: String = "default") -> Channel{
+    public func get(key: String = "default") -> Channel<SendType>{
         if let channel = channels[key]{
             print("Got Existing Key: '\(key)'")
             return channel
         }
 
         print("Creating new channel: '\(key)'")
-        let channel = Channel(name: key, driver: self)
+        let channel = Channel<SendType>(name: key, driver: self)
         channels[key] = channel
 
         return channel

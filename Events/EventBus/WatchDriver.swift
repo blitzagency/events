@@ -14,7 +14,7 @@ import WatchConnectivity
 
     static var _defaultDriver: WatchDriver?
     var session: WCSession?
-    public var channels = [String: Channel]()
+    public var channels = [String: WatchChannel]()
 
     public static func defaultSession() -> WatchDriver{
         if let driver = _defaultDriver{
@@ -43,7 +43,7 @@ import WatchConnectivity
         }
     }
 
-    public func send(channel channel: String, name: String, data: Any? = nil) {
+    public func send(channel channel: String, name: String, data: AnyObject?){
         guard let session = session where session.reachable else {
             print("No Session or session is not reachable")
             return
@@ -53,11 +53,8 @@ import WatchConnectivity
         if let data = data{
             // we are sending across the divide
             // we can only send AnyObject to get the serialization
-            if let object = data as? AnyObject{
-                payload = ["channel": channel, "name": name, "data": object]
-            } else {
-                fatalError("Attempt to send data that cannot be converted to AnyObject for serialization")
-            }
+
+            payload = ["channel": channel, "name": name, "data": data]
 
         } else {
             payload = ["channel": channel, "name": name]
