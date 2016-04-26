@@ -151,3 +151,291 @@ class ParentViewController: UIViewController, EventManagerHost {
     }
 }
 ```
+
+### EventBus
+
+This feature is directly inspired by Backbone.Radio
+
+https://github.com/marionettejs/backbone.radio
+
+It exposes namespaced channels/event system and a request and response system.
+Lets take a look at how you might use it.
+
+First of all, when you register channels on the EventBus, they stick around
+which means you can get a handle on them from anythign that might need them.
+
+On the flip side, they stick around so put that in your memory management back
+pocket. The channels are not very big at all, so if you are running out of memory
+in your application, you likely have other issues at play.
+
+```swift
+import Events
+
+enum MyEvents: String {
+    case Action
+}
+
+
+class Foo: EventManagerHost{
+    let eventManager = EventManager()
+    let statusChannel = EventBus.localChannel.get("status")
+
+    func doSomething(){
+        statusChannel.trigger(MyEvents.Action, data: "lucy")
+    }
+}
+
+class Bar: EventManagerHost{
+    let eventManager = EventManager()
+    let statusChannel = EventBus.localChannel.get("status")
+
+    init(){
+        listenTo(statusChannel, MyEvents.Action, callback: onAction)
+    }
+
+    lazy var onAction: (LocalChannel, String) = {
+        (sender, value) in
+        print("got value: \(value)")
+    }
+}
+
+```
+
+
+Channels support the same API as any `EventManagerHost` in fact they are an
+`EventManagerHost`. They do come with some extras built in: Request/Reply.
+
+Request/Reply basically lets you call a function somewhere else and get back
+it's result. It sort of lets your turn your app into an API unto itself allowing
+you to keep things separate.
+
+Let see how that looks.
+
+In the above example, if you wanted to pass some information around, you would
+have to do some extra typing:
+
+```swift
+import Events
+
+enum PetType: String {
+    case Dog
+}
+
+enum Request: String{
+    case WantsType
+}
+
+enum Reply: String{
+    case ReceivedType
+}
+
+
+class Foo: EventManagerHost{
+    let eventManager = EventManager()
+    let statusChannel = EventBus.localChannel.get("status")
+
+    func getType(){
+        listenTo(statusChannel, Reply.ReceivedType, callback: onReceivedType)
+        statusChannel.trigger(Request.WantsType, data: "lucy")
+    }
+
+    lazy var onReceivedType: (LocalChannel, PetType?) = {
+        (sender, value) in
+        print("got reply: \(value)")
+        stopListening(Reply.ReceivedType)
+    }
+}
+
+class Bar: EventManagerHost{
+    let eventManager = EventManager()
+    let statusChannel = EventBus.localChannel.get("status")
+    let types = ["lucy": PetType.Dog]
+
+    init(){
+        listenTo(statusChannel, Request.WantsType, callback: onWantsType)
+    }
+
+    lazy var onWantsType: (LocalChannel, String) -> () = {[unowned self]
+        (sender, value) in
+        print("got request: \(value)")
+
+        let petType: PetType?
+
+        if let type = self.types[value.lowercaseString]{
+            petType = type
+        }
+
+        statusChannel.trigger(Reply.ReceivedType, data: petType)
+    }
+}
+```
+
+Yikes, quite a bit in play there!
+
+- Our classes have to be `EventManagerHost`s.
+- We have to retrigger on the channel once our event handler fires.
+- We need a request and reply event type
+
+We can make this a lot shorter with a channels built in Request/Reply.
+Same example as above, but now done with Request/Reply on the channel.
+
+```swift
+import Events
+
+enum PetType: String {
+    case Dog
+}
+
+enum Request: String{
+    case WantsType
+}
+
+
+class Foo{
+    let statusChannel = EventBus.localChannel.get("status")
+
+    func getType(){
+        statusChannel.request(Request.WantsType, "lucy"){
+            (value: PetType?) in
+            print(value)
+        }
+    }
+}
+
+class Bar{
+    let statusChannel = EventBus.localChannel.get("status")
+    let types = ["lucy": PetType.Dog]
+
+    init(){
+        statusChannel.reply(Request.WantsType, callback: onWantsType)
+    }
+
+    lazy var onWantsType: (String) -> PetType? = {[unowned self]
+        (arg) in
+        print("got request with arg: \(arg)")
+
+        let petType: PetType?
+
+        if let type = self.types[value.lowercaseString]{
+            petType = type
+        }
+
+        return petType
+    }
+}
+```
+
+It's quite a bit simpler, not so much house keeping to do anymore.
+
+So that's pretty cool right? Why `localChannel` and not just `channel`?
+Turns out we can adapt this to also cover things like WatchOS communication
+using the same API. The primary difference being that **watchOS** wants to
+serialize `AnyObject` vs `Any`. So we handle that case with `watchChannel`.
+
+
+#### Watch Request/Reply
+**watchOS 2 Extension**
+```swift
+import Events
+
+enum Request: String{
+    case Add
+}
+
+class InterfaceController: WKInterfaceController{
+    let phoneChannel = EventBus.watchChannel.get() // no value the channel is "default"
+
+    @IBAction func onPress(){
+        phoneChannel.request(Request.Add, 8){ (value: Int) in
+            print("Got Value: \(value)")
+        }
+    }
+}
+```
+
+
+**iOS App**
+```swift
+import Events
+
+enum Request: String{
+    case Add
+}
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        let watchChannel = EventBus.watchChannel.get()
+
+        watchChannel.reply(Request.Add){
+            (value: Int) -> Int in
+            return 22 + value
+        }
+
+        return true
+    }
+}
+```
+
+#### Watch trigger/listenTo
+
+It should be noted, that not only do request/reply work over the watch channel,
+but so does `trigger` / `listenTo` events: (request/reply uses the same system):
+
+
+**watchOS 2 Extension**
+```swift
+import Events
+
+enum MyEvents: String{
+    case GotoIndex
+}
+
+class InterfaceController: WKInterfaceController{
+    let phoneChannel = EventBus.watchChannel.get() // no value the channel key is "default"
+
+    @IBAction func onPress(){
+        phoneChannel.trigger(MyEvents.GotoNext, data: 2)
+    }
+}
+```
+
+
+**iOS App**
+```swift
+import Events
+
+enum MyEvents: String{
+    case GotoNext
+}
+
+class MyViewController: UIViewController, EventManagerHost {
+    let eventManager = EventManager()
+    let watchChannel = EventBus.watchChannel.get() // no value the channel key is "default"
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        listenTo(watchChannel, MyEvents.GotoNext, callback: onGotoNext)
+    }
+
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        stopListening(MyEvents.GotoNext)
+    }
+
+    lazy var onGotoNext: (Int) -> () = {[unowned self]
+        (value: Int) in
+
+        // maybe load a different storyboard based on the index
+        let sb = UIStoryboard(name: "SomeStoryboard", bundle: nil)
+        let viewController = sb.instantiateInitialViewController()!
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+```
+
+This example works both ways. You could also trigger from the phone to
+the watch in the same way.
+
+
+
