@@ -44,7 +44,7 @@ extension EventManager {
 
     func addHandler<Publisher: EventManager>(publisher: Publisher, handler: HandlerPublisher<Publisher>, listener: Listener, event: String){
 
-        var handlers = self.publisherEventHandlers(publisher, event: event)
+        var handlers = self.publisherEventHandlers(publisher, event: event) ?? [HandlerBase]()
 
         dispatch_sync(publisher.lockingQueue){
             listener.count = listener.count + 1
@@ -70,7 +70,7 @@ extension EventManager {
         // so event.publisher == self
         let handlers = publisherEventHandlers(event.publisher, event: event.name)
 
-        handlers.forEach{ handler in
+        handlers?.forEach{ handler in
             guard let handler = handler as? HandlerPublisher<Publisher> else {
                 return
             }

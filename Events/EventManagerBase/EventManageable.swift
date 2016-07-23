@@ -9,7 +9,7 @@
 import Foundation
 
 
-public protocol EventManageable {
+public protocol EventManageable: class {
     var listenId: String {get}
     var listeningTo: [String: Listener] {get set}
     var events: [String: [HandlerBase]] {get set}

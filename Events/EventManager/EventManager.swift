@@ -20,4 +20,5 @@ public class EventManager: EventManagerBase {
         let event = buildEvent(name, publisher: self, data: data)
         trigger(event)
     }
+
 }

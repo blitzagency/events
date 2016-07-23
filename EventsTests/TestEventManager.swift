@@ -7,10 +7,42 @@
 //
 
 import XCTest
-import Events
+@testable import Events
 
 class TestEventManager: XCTestCase {
 
+
+    func testStopListeningToPublisher(){
+        let m1 = EventManager()
+        let m2 = EventManager()
+
+        m2.listenTo(m1, event: "lucy"){
+            XCTFail("Failed to stop listening to 'lucy'")
+        }
+
+        m2.listenTo(m1, event: "woof"){
+            XCTFail("Failed to stop listening to 'woof'")
+        }
+
+        guard let listener = m2.listeningTo[m1.listenId] else{
+            XCTFail("Unable to locate listener for \(m1.listenId)")
+            return
+        }
+
+        XCTAssert(listener.count == 2)
+        XCTAssert(m1.events.count == 2)
+        XCTAssert(m1.events["lucy"]!.count == 1)
+        XCTAssert(m1.events["woof"]!.count == 1)
+
+        m2.stopListening(m1)
+
+        m1.trigger("lucy")
+        m1.trigger("woof")
+
+        XCTAssert(listener.count == 0)
+        XCTAssertNil(m2.listeningTo[m1.listenId])
+        XCTAssert(m1.events.count == 0)
+    }
 
     func testParameterlessCallback(){
 

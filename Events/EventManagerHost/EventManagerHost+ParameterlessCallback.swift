@@ -10,6 +10,15 @@ import Foundation
 
 extension EventManagerHost {
 
+    public func listenTo<Publisher: EventManager, Event: RawRepresentable where Event.RawValue == String>(_ publisher: Publisher, event: Event, callback:() -> ()){
+        eventManager.listenTo(publisher, event: event, callback: callback)
+    }
+
+    public func listenTo<Publisher: EventManager>(_ publisher: Publisher, event: String, callback:() -> ()){
+        eventManager.listenTo(publisher, event: event, callback: callback)
+    }
+
+
     public func listenTo<Publisher: EventManagerHost, Event: RawRepresentable where Event.RawValue == String>(_ publisher: Publisher, event: Event, callback:() -> ()){
         listenTo(publisher, event: event.rawValue, callback: callback)
     }

@@ -55,7 +55,7 @@ extension TypedEventManager {
         // so event.publisher == self
         let handlers = publisherEventHandlers(event.publisher, event: event.name)
 
-        handlers.forEach{ handler in
+        handlers?.forEach{ handler in
 
             guard let handler = handler as? HandlerPublisherData<Publisher, Data> else {
                 return

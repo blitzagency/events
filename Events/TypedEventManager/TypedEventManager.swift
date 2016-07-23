@@ -9,9 +9,14 @@
 import Foundation
 
 
+public protocol TypedEventManageable: EventManageable{
+    associatedtype EventType: RawRepresentable
+}
 
-public class TypedEventManager<Event: RawRepresentable>: EventManagerBase{
 
+public class TypedEventManager<Event: RawRepresentable>: EventManagerBase, TypedEventManageable{
+
+    public typealias EventType = Event
 
     public func trigger(_ name: Event){
         guard let value = name.rawValue as? String else{

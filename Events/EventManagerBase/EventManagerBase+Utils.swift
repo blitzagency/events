@@ -12,6 +12,61 @@ import Foundation
 
 extension EventManagerBase {
 
+    /// Stop listening to events triggered by the specified publisher
+    public func stopListening<Publisher: EventManageable>(_ publisher: Publisher){
+
+        // are we listening to this publisher?
+        guard let listener = listeningTo[publisher.listenId] else {
+            return
+        }
+
+        // we need the events names and handlers
+        // for every event this publisher might have
+        // as we need to check if we are a part of
+        // any of them and remove ourselves
+
+        lockingQueue.sync{
+            // we are going to loop over all of the events
+            // and any that do not have the publiher that was
+            // was passed in we will add to this new
+            // events dictionary and reset it, thus
+            // we stop listening to the provided publisher.
+            var events = [String: [HandlerBase]]()
+
+            publisher.events.forEach{
+                key, handlers in
+
+                var activeHandlers = [HandlerBase]()
+
+                handlers.forEach{
+                    handler in
+
+                    if handler.listener !== listener{
+                        activeHandlers.append(handler)
+                        return
+                    }
+
+                    let candidate = handler.listener
+                    candidate.count = candidate.count - 1
+
+                    if candidate.count == 0{
+                        // see: addHandler(...). The listeners is registered
+                        // with listener.subscriberId
+                        publisher.listeners.removeValue(forKey: candidate.subscriberId)
+                        self.listeningTo.removeValue(forKey: publisher.listenId)
+                    }
+                }
+
+                if activeHandlers.count > 0 {
+                    events[key] = activeHandlers
+                }
+            }
+            
+            publisher.events = events
+            
+        }
+    }
+
     func wrapCallback<Publisher: EventManagerBase>(_ callback: () -> ()) -> (EventPublisher<Publisher>) -> (){
         return { event in
             callback()
@@ -32,7 +87,7 @@ extension EventManagerBase {
 
     func addHandler(_ publisher: EventManagerBase, handler: HandlerBase, listener: Listener, event: String){
 
-        var handlers = self.publisherEventHandlers(publisher, event: event)
+        var handlers = self.publisherEventHandlers(publisher, event: event) ?? [HandlerBase]()
 
         publisher.lockingQueue.sync{
 
@@ -53,19 +108,8 @@ extension EventManagerBase {
     }
 
     /// Get the list of event handler for this publisher for the provided event type.
-    func publisherEventHandlers<Publisher: EventManagerBase>(_ publisher: Publisher, event: String) -> [HandlerBase]{
-
-        guard let handlers = publisher.events[event] else {
-            let newHandlers = [HandlerBase]()
-
-            publisher.lockingQueue.sync{
-                publisher.events[event] = newHandlers
-            }
-
-            return newHandlers
-        }
-
-        return handlers;
+    func publisherEventHandlers<Publisher: EventManagerBase>(_ publisher: Publisher, event: String) -> [HandlerBase]?{
+        return publisher.events[event]
     }
 
     /// Get the `Listener` for the provided Publisher

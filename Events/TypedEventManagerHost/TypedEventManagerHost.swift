@@ -40,6 +40,14 @@ extension TypedEventManagerHost{
         let event = buildEvent(name, publisher: self, data: data)
         trigger(event)
     }
+
+    public func stopListening<Publisher: TypedEventManageable>(_ publisher: Publisher){
+        eventManager.stopListening(publisher)
+    }
+
+    public func stopListening<Publisher: TypedEventManagerHost>(_ publisher: Publisher){
+        eventManager.stopListening(publisher.eventManager)
+    }
 }
 
 

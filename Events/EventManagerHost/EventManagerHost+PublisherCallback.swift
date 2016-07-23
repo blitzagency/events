@@ -49,7 +49,7 @@ extension EventManagerHost {
 
         let handlers = eventManager.publisherEventHandlers(event.publisher.eventManager, event: event.name)
 
-        handlers.forEach{ handler in
+        handlers?.forEach{ handler in
             guard let handler = handler as? HandlerPublisher<Publisher> else {
                 return
             }
