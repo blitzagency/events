@@ -41,6 +41,10 @@ extension TypedEventManagerHost{
         trigger(event)
     }
 
+    public func stopListening(){
+        eventManager.stopListening()
+    }
+
     public func stopListening<Publisher: TypedEventManageable>(_ publisher: Publisher){
         eventManager.stopListening(publisher)
     }

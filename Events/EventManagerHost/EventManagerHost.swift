@@ -25,6 +25,10 @@ extension EventManagerHost{
         trigger(event)
     }
 
+    public func stopListening(){
+        eventManager.stopListening()
+    }
+
     public func stopListening<Publisher: EventManager>(_ publisher: Publisher){
         eventManager.stopListening(publisher)
     }

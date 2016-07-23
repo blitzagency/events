@@ -12,6 +12,12 @@ import Foundation
 
 extension EventManagerBase {
 
+    public func stopListening(){
+        listeningTo.forEach { (key, listener) -> () in
+            stopListening(listener.publisher)
+        }
+    }
+
     /// Stop listening to events triggered by the specified publisher
     public func stopListening<Publisher: EventManageable>(_ publisher: Publisher){
 

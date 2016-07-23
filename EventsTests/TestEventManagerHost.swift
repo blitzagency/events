@@ -12,6 +12,54 @@ import XCTest
 class TestEventManagerHost: XCTestCase {
 
 
+    func testStopListening(){
+        let m1 = Cat(id: "1")
+        let m2 = Cat(id: "2")
+        let m3 = Cat(id: "3")
+
+        m2.listenTo(m1, event: "ollie"){
+            XCTFail("Failed to stop listening to 'm1.lucy'")
+        }
+
+        m2.listenTo(m1, event: "meow"){
+            XCTFail("Failed to stop listening to 'm1.woof'")
+        }
+
+        m2.listenTo(m3, event: "purr"){
+            XCTFail("Failed to stop listening to 'm3.chaseSquirrels'")
+        }
+
+        let manager1 = m1.eventManager
+        let manager2 = m2.eventManager
+        let manager3 = m3.eventManager
+
+        guard let listener = manager2.listeningTo[manager1.listenId] else{
+            XCTFail("Unable to locate listener for \(manager1.listenId)")
+            return
+        }
+
+        XCTAssert(listener.count == 2)
+        XCTAssert(manager1.events.count == 2)
+        XCTAssert(manager1.events["ollie"]!.count == 1)
+        XCTAssert(manager1.events["meow"]!.count == 1)
+
+        XCTAssert(manager3.events.count == 1)
+        XCTAssert(manager3.events["purr"]!.count == 1)
+
+        m2.stopListening()
+
+        m1.trigger("ollie")
+        m1.trigger("meow")
+        m3.trigger("purr")
+
+        XCTAssert(listener.count == 0)
+        XCTAssertNil(manager2.listeningTo[manager1.listenId])
+        XCTAssertNil(manager2.listeningTo[manager3.listenId])
+        XCTAssert(manager1.events.count == 0)
+        XCTAssert(manager3.events.count == 0)
+
+    }
+
     func testStopListeningToPublisher(){
         let m1 = Cat(id: "1")
         let m2 = Cat(id: "2")
