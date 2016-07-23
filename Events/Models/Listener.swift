@@ -9,16 +9,14 @@
 import Foundation
 
 
-public class Listener{
-    var listeningTo: [String: Listener]
-    unowned let publisher: EventManager
-    unowned let subscriber: EventManager
+public class Listener {
+    unowned let publisher: EventManagerBase
+    unowned let subscriber: EventManagerBase
     var count = 0
 
-    public init(publisher: EventManager, subscriber: EventManager, listeningTo: [String: Listener]){
+    public init(publisher: EventManagerBase, subscriber: EventManagerBase){
         self.publisher = publisher
         self.subscriber = subscriber
-        self.listeningTo = listeningTo
     }
 
     var publisherId: String {

@@ -9,16 +9,74 @@
 import Foundation
 
 
-public struct Handler{
-    unowned let publisher: EventManager
-    unowned let subscriber: EventManager
-    unowned let listener: Listener
-    let callback: (Event) -> ()
 
-    init(publisher: EventManager, subscriber: EventManager, listener: Listener, callback: (Event)->()){
+public protocol EventHandler {
+    var publisher: EventManagerBase { get }
+    var subscriber: EventManagerBase { get }
+    var listener: Listener { get }
+}
+
+public protocol PublisherCallback {
+    associatedtype Event
+    var callback: (Event) -> () { get }
+}
+
+public protocol PublisherDataCallback {
+    associatedtype Event
+    var callback: (Event) -> () { get }
+}
+
+
+
+// Swift does not allow struct inheritance
+// because of that, these are classes as we need to be 
+// able to cast up and down the type heirarchy in 
+// EventManager.trigger
+
+public class HandlerBase: EventHandler {
+
+    public unowned let publisher: EventManagerBase
+    public unowned let subscriber: EventManagerBase
+    public unowned let listener: Listener
+
+    public init(publisher: EventManagerBase, subscriber: EventManagerBase, listener: Listener){
         self.publisher = publisher
         self.subscriber = subscriber
         self.listener = listener
-        self.callback = callback
     }
 }
+
+
+public class HandlerPublisher<Publisher>: HandlerBase, PublisherCallback {
+    public let callback: (EventPublisher<Publisher>) -> ()
+
+    public init(publisher: EventManagerBase, subscriber: EventManagerBase, listener: Listener, callback: (EventPublisher<Publisher>) -> ()){
+        self.callback = callback
+        super.init(publisher: publisher, subscriber: subscriber, listener: listener)
+    }
+}
+
+public class HandlerPublisherData<Publisher, Data>: HandlerBase, PublisherDataCallback {
+    public let callback: (EventPublisherData<Publisher, Data>) -> ()
+
+    public init(publisher: EventManagerBase, subscriber: EventManagerBase, listener: Listener, callback: (EventPublisherData<Publisher, Data>) -> ()){
+        self.callback = callback
+        super.init(publisher: publisher, subscriber: subscriber, listener: listener)
+    }
+}
+
+
+
+//public struct xHandler{
+//    unowned let publisher: EventManager
+//    unowned let subscriber: EventManager
+//    unowned let listener: Listener
+//    let callback: (Event) -> ()
+//
+//    init(publisher: EventManager, subscriber: EventManager, listener: Listener, callback: (Event)->()){
+//        self.publisher = publisher
+//        self.subscriber = subscriber
+//        self.listener = listener
+//        self.callback = callback
+//    }
+//}

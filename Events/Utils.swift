@@ -9,6 +9,16 @@
 import Foundation
 
 func uniqueId() -> String {
-    return NSUUID().UUIDString
+    return UUID().uuidString
 }
 
+
+
+func buildEvent<Publisher>(_ name: String, publisher: Publisher) -> EventPublisher<Publisher>{
+    return EventPublisher(name: name, publisher: publisher)
+}
+
+
+func buildEvent<Publisher, Data>(_ name: String, publisher: Publisher, data: Data) -> EventPublisherData<Publisher, Data>{
+    return EventPublisherData(name: name, publisher: publisher, data: data)
+}
