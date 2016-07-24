@@ -15,13 +15,23 @@ public protocol EventManagerHost{
 
 extension EventManagerHost{
 
-    public func trigger(_ name: String){
-        let event = buildEvent(name, publisher: self)
+    public func trigger<Event: RawRepresentable where Event.RawValue == String>(_ event: Event){
+        let event = buildEvent(event.rawValue, publisher: self)
         trigger(event)
     }
 
-    public func trigger<Data>(_ name: String, data: Data){
-        let event = buildEvent(name, publisher: self, data: data)
+    public func trigger<Data, Event: RawRepresentable where Event.RawValue == String>(_ event: Event, data: Data){
+        let event = buildEvent(event.rawValue, publisher: self, data: data)
+        trigger(event)
+    }
+
+    public func trigger(_ event: String){
+        let event = buildEvent(event, publisher: self)
+        trigger(event)
+    }
+
+    public func trigger<Data>(_ event: String, data: Data){
+        let event = buildEvent(event, publisher: self, data: data)
         trigger(event)
     }
 
@@ -29,11 +39,15 @@ extension EventManagerHost{
         eventManager.stopListening()
     }
 
-    public func stopListening<Publisher: EventManager>(_ publisher: Publisher){
-        eventManager.stopListening(publisher)
+    public func stopListening<Publisher: EventManager, Event: RawRepresentable where Event.RawValue == String>(_ publisher: Publisher, event: Event?){
+        eventManager.stopListening(publisher, event: event?.rawValue)
     }
 
-    public func stopListening<Publisher: EventManagerHost>(_ publisher: Publisher){
-        eventManager.stopListening(publisher.eventManager)
+    public func stopListening<Publisher: EventManager>(_ publisher: Publisher, event: String? = nil){
+        eventManager.stopListening(publisher, event: event)
+    }
+
+    public func stopListening<Publisher: EventManagerHost>(_ publisher: Publisher, event: String? = nil){
+        eventManager.stopListening(publisher.eventManager, event: event)
     }
 }
