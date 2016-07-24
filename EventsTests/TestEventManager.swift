@@ -12,6 +12,42 @@ import XCTest
 class TestEventManager: XCTestCase {
 
 
+    func testStopListeningToEvent(){
+
+        let done = expectation(description: "done")
+        let m1 = EventManager()
+        let m2 = EventManager()
+
+        m2.listenTo(m1, event: "lucy"){
+            done.fulfill()
+        }
+
+        m2.listenTo(m1, event: "woof"){
+            XCTFail("Failed to stop listening to 'm1.woof'")
+        }
+
+        guard let listener = m2.listeningTo[m1.listenId] else{
+            XCTFail("Unable to locate listener for \(m1.listenId)")
+            return
+        }
+
+        XCTAssert(listener.count == 2)
+        XCTAssert(m1.events.count == 2)
+
+
+        m2.stopListening(m1, event: "woof")
+
+
+        XCTAssert(listener.count == 1)
+        XCTAssert(m1.events.count == 1)
+
+
+        m1.trigger("lucy")
+        m1.trigger("woof")
+
+        waitForExpectations(timeout: 300, handler: nil)
+    }
+
     func testStopListening(){
         let m1 = EventManager()
         let m2 = EventManager()

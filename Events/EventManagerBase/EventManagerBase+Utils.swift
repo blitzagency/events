@@ -12,14 +12,25 @@ import Foundation
 
 extension EventManagerBase {
 
+    /**
+     Stop listening to events from all publishers
+    */
     public func stopListening(){
         listeningTo.forEach { (key, listener) -> () in
             stopListening(listener.publisher)
         }
     }
 
-    /// Stop listening to events triggered by the specified publisher
-    public func stopListening<Publisher: EventManageable>(_ publisher: Publisher){
+    /**
+     Stop listening to events triggered by the specified publisher
+
+     - Parameter publisher: The EventManageable we would like to stop listening to.
+     - Parameter event: An optional `String` event to limit our removal scope
+
+     - Remark:
+        If no event is given, all events will be silenced from the specified publisher.
+     */
+    public func stopListening<Publisher: EventManageable>(_ publisher: Publisher, event: String? = nil){
 
         // are we listening to this publisher?
         guard let listener = listeningTo[publisher.listenId] else {
@@ -48,6 +59,11 @@ extension EventManagerBase {
                     handler in
 
                     if handler.listener !== listener{
+                        activeHandlers.append(handler)
+                        return
+                    }
+
+                    if let event = event, event != key{
                         activeHandlers.append(handler)
                         return
                     }
