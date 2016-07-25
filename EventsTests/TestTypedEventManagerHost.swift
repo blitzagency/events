@@ -12,6 +12,45 @@ import XCTest
 class TestTypedEventManagerHost: XCTestCase {
 
 
+    func testStopListeningToEvent(){
+
+        let done = expectation(description: "done")
+        let m1 = Dog(id:"1")
+        let m2 = Dog(id:"2")
+
+        m2.listenTo(m1, event: .Woo){
+            done.fulfill()
+        }
+
+        m2.listenTo(m1, event: .ChaseSquirrels){
+            XCTFail("Failed to stop listening to 'm1.ChaseSquirrels'")
+        }
+
+        let manager1 = m1.eventManager
+        let manager2 = m2.eventManager
+
+        guard let listener = manager2.listeningTo[manager1.listenId] else{
+            XCTFail("Unable to locate listener for \(manager1.listenId)")
+            return
+        }
+
+        XCTAssert(listener.count == 2)
+        XCTAssert(manager1.events.count == 2)
+
+
+        m2.stopListening(m1, event: .ChaseSquirrels)
+
+
+        XCTAssert(listener.count == 1)
+        XCTAssert(manager1.events.count == 1)
+
+
+        m1.trigger(.Woo)
+        m1.trigger(.ChaseSquirrels)
+        
+        waitForExpectations(timeout: 300, handler: nil)
+    }
+
     func testStopListening(){
         let m1 = Dog(id: "1")
         let m2 = Dog(id: "2")
@@ -95,7 +134,39 @@ class TestTypedEventManagerHost: XCTestCase {
         XCTAssert(manager1.events.count == 0)
     }
 
-    func testParameterlessCallback(){
+    func testListenToTypedEventManager(){
+        // Note: this is TypedHost -> TypedEventManager
+        // note TypedHost -> TypedHost
+
+        let done = expectation(description: "done")
+
+        let m1 = TypedEventManager<Pet>()
+        let m2 = Dog(id: "2")
+
+        m2.listenTo(m1, event: .Lucy){
+            done.fulfill()
+        }
+
+        m1.trigger(.Lucy)
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+
+    func testStopListeningToTypedEventManager(){
+        // Note: this is TypedHost -> TypedEventManager
+        // note TypedHost -> TypedHost
+
+        let m1 = TypedEventManager<Pet>()
+        let m2 = Dog(id: "2")
+
+        m2.listenTo(m1, event: .Lucy){
+            XCTFail("Failed to stop listening to 'meow'")
+        }
+
+        m2.stopListening(m1)
+        m1.trigger(.Lucy)
+    }
+
+    func testListenToParameterlessCallback(){
 
         let done = expectation(description: "done")
 
@@ -111,7 +182,7 @@ class TestTypedEventManagerHost: XCTestCase {
     }
 
 
-    func testPublisherCallback(){
+    func testListenToPublisherCallback(){
 
         let done = expectation(description: "done")
 
@@ -128,7 +199,7 @@ class TestTypedEventManagerHost: XCTestCase {
         waitForExpectations(timeout: 1, handler: nil)
     }
 
-    func testPublisherDataCallback(){
+    func testListenToPublisherDataCallback(){
 
         let done = expectation(description: "done")
 

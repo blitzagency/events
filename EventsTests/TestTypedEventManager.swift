@@ -12,6 +12,41 @@ import XCTest
 class TestTypedEventManager: XCTestCase {
 
 
+    func testStopListeningToEvent(){
+
+        let done = expectation(description: "done")
+        let m1 = TypedEventManager<Pet>()
+        let m2 = TypedEventManager<Fruit>()
+
+        m2.listenTo(m1, event: .Lucy){
+            done.fulfill()
+        }
+
+        m2.listenTo(m1, event: .Ollie){
+            XCTFail("Failed to stop listening to 'm1.woof'")
+        }
+
+        guard let listener = m2.listeningTo[m1.listenId] else{
+            XCTFail("Unable to locate listener for \(m1.listenId)")
+            return
+        }
+
+        XCTAssert(listener.count == 2)
+        XCTAssert(m1.events.count == 2)
+
+
+        m2.stopListening(m1, event: .Ollie)
+
+        XCTAssert(listener.count == 1)
+        XCTAssert(m1.events.count == 1)
+
+
+        m1.trigger(.Lucy)
+        m1.trigger(.Ollie)
+        
+        waitForExpectations(timeout: 300, handler: nil)
+    }
+
     func testStopListening(){
         let m1 = TypedEventManager<Pet>()
         let m2 = TypedEventManager<Fruit>()
@@ -87,7 +122,7 @@ class TestTypedEventManager: XCTestCase {
     }
 
 
-    func testParameterlessCallback(){
+    func testListenToParameterlessCallback(){
 
         let done = expectation(description: "done")
 
@@ -102,7 +137,7 @@ class TestTypedEventManager: XCTestCase {
         waitForExpectations(timeout: 1, handler: nil)
     }
 
-    func testPublisherCallback(){
+    func testListenToPublisherCallback(){
 
         let done = expectation(description: "done")
 
@@ -120,7 +155,7 @@ class TestTypedEventManager: XCTestCase {
         waitForExpectations(timeout: 1, handler: nil)
     }
 
-    func testPublisherDataCallback(){
+    func testListenToPublisherDataCallback(){
 
         let done = expectation(description: "done")
 

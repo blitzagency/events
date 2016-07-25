@@ -11,7 +11,7 @@ import Foundation
 extension TypedEventManagerHost {
 
 
-    public func listenTo<Data, Event, Publisher: TypedEventManagerHost where Publisher.Event == Event, Event: RawRepresentable, Event.RawValue == String>(_ publisher: Publisher, event: Event, callback:(Publisher, Data) -> ()){
+    public func listenTo<Data, Event, Publisher: TypedEventManagerHost where Publisher.EventType == Event, Event: RawRepresentable, Event.RawValue == String>(_ publisher: Publisher, event: Event, callback:(Publisher, Data) -> ()){
         listenTo(publisher, event: event.rawValue, callback: callback)
     }
 

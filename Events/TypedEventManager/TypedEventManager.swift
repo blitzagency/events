@@ -44,6 +44,19 @@ public class TypedEventManager<Event: RawRepresentable>: EventManagerBase, Typed
         trigger(event)
     }
 
+    /**
+     Stop listening to events triggered by the specified publisher
+
+     - Parameter publisher: The TypedEventManager<T> we would like to stop listening to.
+     - Parameter event: An optional `String RawRepresentable` of type `T` event to limit our removal scope
+
+     - Remark:
+     If no event is given, all events will be silenced from the specified publisher.
+     */
+    public func stopListening<Event: RawRepresentable, Publisher: TypedEventManager<Event> where Event.RawValue == String>(_ publisher: Publisher, event: Event?){
+        stopListening(publisher, event: event?.rawValue)
+    }
+
 }
 
 

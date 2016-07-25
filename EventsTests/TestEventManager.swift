@@ -129,7 +129,7 @@ class TestEventManager: XCTestCase {
         XCTAssert(m3.events.count == 1)
     }
 
-    func testParameterlessCallback(){
+    func testListenToParameterlessCallback(){
 
         let done = expectation(description: "done")
 
@@ -144,7 +144,7 @@ class TestEventManager: XCTestCase {
         waitForExpectations(timeout: 1, handler: nil)
     }
 
-    func testPublisherCallback(){
+    func testListenToPublisherCallback(){
 
         let done = expectation(description: "done")
 
@@ -162,7 +162,7 @@ class TestEventManager: XCTestCase {
         waitForExpectations(timeout: 1, handler: nil)
     }
 
-    func testPublisherDataCallback(){
+    func testListenToPublisherDataCallback(){
 
         let done = expectation(description: "done")
 
