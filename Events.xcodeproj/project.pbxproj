@@ -35,6 +35,36 @@
 		231C4C2F1D42E41700EC74AC /* TestEventManagerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C2D1D42E41700EC74AC /* TestEventManagerHost.swift */; };
 		231C4C311D42E43000EC74AC /* EventManagerHosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C301D42E43000EC74AC /* EventManagerHosts.swift */; };
 		231C4C321D42E43000EC74AC /* EventManagerHosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C301D42E43000EC74AC /* EventManagerHosts.swift */; };
+		231C4C351D48141F00EC74AC /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C341D48141F00EC74AC /* Channel.swift */; };
+		231C4C361D48141F00EC74AC /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C341D48141F00EC74AC /* Channel.swift */; };
+		231C4C371D48141F00EC74AC /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C341D48141F00EC74AC /* Channel.swift */; };
+		231C4C391D48EBAE00EC74AC /* TestChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C381D48EBAE00EC74AC /* TestChannel.swift */; };
+		231C4C3A1D48EBAE00EC74AC /* TestChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C381D48EBAE00EC74AC /* TestChannel.swift */; };
+		231C4C3C1D48F29300EC74AC /* Channel+0RequestReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C3B1D48F29300EC74AC /* Channel+0RequestReply.swift */; };
+		231C4C3D1D48F29300EC74AC /* Channel+0RequestReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C3B1D48F29300EC74AC /* Channel+0RequestReply.swift */; };
+		231C4C3E1D48F29300EC74AC /* Channel+0RequestReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C3B1D48F29300EC74AC /* Channel+0RequestReply.swift */; };
+		231C4C401D48F2D500EC74AC /* Channel+1RequestReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C3F1D48F2D500EC74AC /* Channel+1RequestReply.swift */; };
+		231C4C411D48F2D500EC74AC /* Channel+1RequestReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C3F1D48F2D500EC74AC /* Channel+1RequestReply.swift */; };
+		231C4C421D48F2D500EC74AC /* Channel+1RequestReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C3F1D48F2D500EC74AC /* Channel+1RequestReply.swift */; };
+		231C4C441D48F30200EC74AC /* Channel+2RequestReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C431D48F30200EC74AC /* Channel+2RequestReply.swift */; };
+		231C4C451D48F30200EC74AC /* Channel+2RequestReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C431D48F30200EC74AC /* Channel+2RequestReply.swift */; };
+		231C4C461D48F30200EC74AC /* Channel+2RequestReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C431D48F30200EC74AC /* Channel+2RequestReply.swift */; };
+		231C4C481D4B925D00EC74AC /* WatchKitChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C471D4B925D00EC74AC /* WatchKitChannel.swift */; };
+		231C4C4A1D4B925D00EC74AC /* WatchKitChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C471D4B925D00EC74AC /* WatchKitChannel.swift */; };
+		231C4C501D4B936000EC74AC /* TestWatchKitChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C4B1D4B92E100EC74AC /* TestWatchKitChannel.swift */; };
+		231C4C531D4BAB8900EC74AC /* WatchKitChannelDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C521D4BAB8900EC74AC /* WatchKitChannelDriver.swift */; };
+		231C4C551D4BAB8900EC74AC /* WatchKitChannelDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C521D4BAB8900EC74AC /* WatchKitChannelDriver.swift */; };
+		231C4C581D4BB55600EC74AC /* LocalChannelDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C571D4BB55600EC74AC /* LocalChannelDriver.swift */; };
+		231C4C591D4BB55600EC74AC /* LocalChannelDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C571D4BB55600EC74AC /* LocalChannelDriver.swift */; };
+		231C4C5A1D4BB55600EC74AC /* LocalChannelDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C571D4BB55600EC74AC /* LocalChannelDriver.swift */; };
+		231C4C5C1D4BB59600EC74AC /* ChannelDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C5B1D4BB59600EC74AC /* ChannelDriver.swift */; };
+		231C4C5D1D4BB59600EC74AC /* ChannelDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C5B1D4BB59600EC74AC /* ChannelDriver.swift */; };
+		231C4C5E1D4BB59600EC74AC /* ChannelDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C5B1D4BB59600EC74AC /* ChannelDriver.swift */; };
+		231C4C601D4BB6DC00EC74AC /* EventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C5F1D4BB6DC00EC74AC /* EventBus.swift */; };
+		231C4C611D4BB6DC00EC74AC /* EventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C5F1D4BB6DC00EC74AC /* EventBus.swift */; };
+		231C4C621D4BB6DC00EC74AC /* EventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C5F1D4BB6DC00EC74AC /* EventBus.swift */; };
+		231C4C641D4BB72700EC74AC /* TestLocalChannelDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C631D4BB72700EC74AC /* TestLocalChannelDriver.swift */; };
+		231C4C651D4BB72700EC74AC /* TestLocalChannelDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C631D4BB72700EC74AC /* TestLocalChannelDriver.swift */; };
 		2327EAE41C0F7347004AC6BC /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EAE31C0F7347004AC6BC /* Listener.swift */; };
 		2327EAE61C0F734E004AC6BC /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EAE51C0F734E004AC6BC /* Handler.swift */; };
 		2327EAE81C0F7358004AC6BC /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327EAE71C0F7358004AC6BC /* Event.swift */; };
@@ -99,6 +129,13 @@
 		23E394D71D3E9FE20092F246 /* EventManager+PublisherDataCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E394D61D3E9FE20092F246 /* EventManager+PublisherDataCallback.swift */; };
 		23E394D81D3E9FE20092F246 /* EventManager+PublisherDataCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E394D61D3E9FE20092F246 /* EventManager+PublisherDataCallback.swift */; };
 		23E394D91D3E9FE20092F246 /* EventManager+PublisherDataCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E394D61D3E9FE20092F246 /* EventManager+PublisherDataCallback.swift */; };
+		23EC7B591D4BBC8F007B7740 /* TestWatchKitChannelDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC7B571D4BBC8F007B7740 /* TestWatchKitChannelDriver.swift */; };
+		23EC7B5B1D4BD650007B7740 /* RequestArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC7B5A1D4BD650007B7740 /* RequestArguments.swift */; };
+		23EC7B5C1D4BD650007B7740 /* RequestArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC7B5A1D4BD650007B7740 /* RequestArguments.swift */; };
+		23EC7B5D1D4BD650007B7740 /* RequestArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC7B5A1D4BD650007B7740 /* RequestArguments.swift */; };
+		23EC7B5F1D4BFE75007B7740 /* WatchKitSerializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC7B5E1D4BFE75007B7740 /* WatchKitSerializers.swift */; };
+		23EC7B601D4BFE75007B7740 /* WatchKitSerializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC7B5E1D4BFE75007B7740 /* WatchKitSerializers.swift */; };
+		23EC7B631D4D1383007B7740 /* MockWCSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC7B611D4D0E4A007B7740 /* MockWCSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +181,18 @@
 		231C4C2A1D42E2C500EC74AC /* TestEventManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestEventManager.swift; sourceTree = "<group>"; };
 		231C4C2D1D42E41700EC74AC /* TestEventManagerHost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestEventManagerHost.swift; sourceTree = "<group>"; };
 		231C4C301D42E43000EC74AC /* EventManagerHosts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManagerHosts.swift; sourceTree = "<group>"; };
+		231C4C341D48141F00EC74AC /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		231C4C381D48EBAE00EC74AC /* TestChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestChannel.swift; sourceTree = "<group>"; };
+		231C4C3B1D48F29300EC74AC /* Channel+0RequestReply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Channel+0RequestReply.swift"; sourceTree = "<group>"; };
+		231C4C3F1D48F2D500EC74AC /* Channel+1RequestReply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Channel+1RequestReply.swift"; sourceTree = "<group>"; };
+		231C4C431D48F30200EC74AC /* Channel+2RequestReply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Channel+2RequestReply.swift"; sourceTree = "<group>"; };
+		231C4C471D4B925D00EC74AC /* WatchKitChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchKitChannel.swift; sourceTree = "<group>"; };
+		231C4C4B1D4B92E100EC74AC /* TestWatchKitChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestWatchKitChannel.swift; sourceTree = "<group>"; };
+		231C4C521D4BAB8900EC74AC /* WatchKitChannelDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchKitChannelDriver.swift; sourceTree = "<group>"; };
+		231C4C571D4BB55600EC74AC /* LocalChannelDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalChannelDriver.swift; sourceTree = "<group>"; };
+		231C4C5B1D4BB59600EC74AC /* ChannelDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelDriver.swift; sourceTree = "<group>"; };
+		231C4C5F1D4BB6DC00EC74AC /* EventBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventBus.swift; sourceTree = "<group>"; };
+		231C4C631D4BB72700EC74AC /* TestLocalChannelDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLocalChannelDriver.swift; sourceTree = "<group>"; };
 		231E4B4C1D3C0C2500FAB75E /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		231E4B501D3D078D00FAB75E /* EventManager+NoneCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventManager+NoneCallback.swift"; sourceTree = "<group>"; };
 		231E4B541D3D07F300FAB75E /* EventManager+PublisherCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventManager+PublisherCallback.swift"; sourceTree = "<group>"; };
@@ -182,6 +231,10 @@
 		23E394CE1D3E9E950092F246 /* EventManager+ParameterlessCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventManager+ParameterlessCallback.swift"; sourceTree = "<group>"; };
 		23E394D21D3E9F150092F246 /* EventManager+PublisherCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventManager+PublisherCallback.swift"; sourceTree = "<group>"; };
 		23E394D61D3E9FE20092F246 /* EventManager+PublisherDataCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventManager+PublisherDataCallback.swift"; sourceTree = "<group>"; };
+		23EC7B571D4BBC8F007B7740 /* TestWatchKitChannelDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestWatchKitChannelDriver.swift; sourceTree = "<group>"; };
+		23EC7B5A1D4BD650007B7740 /* RequestArguments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestArguments.swift; sourceTree = "<group>"; };
+		23EC7B5E1D4BFE75007B7740 /* WatchKitSerializers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchKitSerializers.swift; sourceTree = "<group>"; };
+		23EC7B611D4D0E4A007B7740 /* MockWCSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockWCSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,12 +306,14 @@
 		2307EE571C0BAE8000843582 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				231C4C511D4BA99F00EC74AC /* EventBus */,
+				231C4C331D48140700EC74AC /* Channels */,
 				236F0F701D417E3C00E00940 /* TypedEventManager */,
 				239F6DCD1D42575E009F8DDF /* TypedEventManagerHost */,
 				236F0F751D41811300E00940 /* EventManager */,
 				236F0F5F1D417B7000E00940 /* EventManagerHost */,
 				23E394C11D3E9D150092F246 /* EventManagerBase */,
-				230A0B2B1CCEAD8A00BCA5CD /* EventBus */,
+				230A0B2B1CCEAD8A00BCA5CD /* EventBus_old */,
 				2327EAEE1C0F76FE004AC6BC /* Platforms */,
 				2327EAE21C0F733E004AC6BC /* Models */,
 				2307EE581C0BAE8000843582 /* Events.h */,
@@ -288,11 +343,15 @@
 				231C4C2D1D42E41700EC74AC /* TestEventManagerHost.swift */,
 				231C4C1B1D42DAD500EC74AC /* TestTypedEventManager.swift */,
 				231C4C271D42DE6000EC74AC /* TestTypedEventManagerHost.swift */,
+				231C4C381D48EBAE00EC74AC /* TestChannel.swift */,
+				231C4C4B1D4B92E100EC74AC /* TestWatchKitChannel.swift */,
+				231C4C631D4BB72700EC74AC /* TestLocalChannelDriver.swift */,
+				23EC7B571D4BBC8F007B7740 /* TestWatchKitChannelDriver.swift */,
 			);
 			path = EventsTests;
 			sourceTree = "<group>";
 		};
-		230A0B2B1CCEAD8A00BCA5CD /* EventBus */ = {
+		230A0B2B1CCEAD8A00BCA5CD /* EventBus_old */ = {
 			isa = PBXGroup;
 			children = (
 				230A0B2C1CCEAD9D00BCA5CD /* EventBus.swift */,
@@ -301,7 +360,7 @@
 				230A0B2F1CCEAD9D00BCA5CD /* WatchDriver.swift */,
 				230A0B301CCEAD9D00BCA5CD /* LocalDriver.swift */,
 			);
-			path = EventBus;
+			path = EventBus_old;
 			sourceTree = "<group>";
 		};
 		230A0B451CCEB31800BCA5CD /* Frameworks */ = {
@@ -328,10 +387,44 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		231C4C331D48140700EC74AC /* Channels */ = {
+			isa = PBXGroup;
+			children = (
+				231C4C561D4BB53300EC74AC /* Drivers */,
+				23EC7B5A1D4BD650007B7740 /* RequestArguments.swift */,
+				231C4C341D48141F00EC74AC /* Channel.swift */,
+				231C4C3B1D48F29300EC74AC /* Channel+0RequestReply.swift */,
+				231C4C3F1D48F2D500EC74AC /* Channel+1RequestReply.swift */,
+				231C4C431D48F30200EC74AC /* Channel+2RequestReply.swift */,
+				231C4C471D4B925D00EC74AC /* WatchKitChannel.swift */,
+			);
+			path = Channels;
+			sourceTree = "<group>";
+		};
+		231C4C511D4BA99F00EC74AC /* EventBus */ = {
+			isa = PBXGroup;
+			children = (
+				231C4C5F1D4BB6DC00EC74AC /* EventBus.swift */,
+			);
+			path = EventBus;
+			sourceTree = "<group>";
+		};
+		231C4C561D4BB53300EC74AC /* Drivers */ = {
+			isa = PBXGroup;
+			children = (
+				231C4C5B1D4BB59600EC74AC /* ChannelDriver.swift */,
+				231C4C521D4BAB8900EC74AC /* WatchKitChannelDriver.swift */,
+				23EC7B5E1D4BFE75007B7740 /* WatchKitSerializers.swift */,
+				231C4C571D4BB55600EC74AC /* LocalChannelDriver.swift */,
+			);
+			path = Drivers;
+			sourceTree = "<group>";
+		};
 		2327EADD1C0F5074004AC6BC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				2327EADE1C0F508B004AC6BC /* MockObject.swift */,
+				23EC7B611D4D0E4A007B7740 /* MockWCSession.swift */,
 				237441B41CC7D6920001CFF4 /* Delay.swift */,
 				231C4C211D42DB1C00EC74AC /* TypedEvents.swift */,
 				231C4C241D42DDC400EC74AC /* TypedEventManagerHosts.swift */,
@@ -588,9 +681,12 @@
 				TargetAttributes = {
 					2307EE541C0BAE8000843582 = {
 						CreatedOnToolsVersion = 7.1.1;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 					};
 					2307EE5E1C0BAE8000843582 = {
 						CreatedOnToolsVersion = 7.1.1;
+						LastSwiftMigration = 0800;
 					};
 					2327EB151C0F7BCF004AC6BC = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -673,21 +769,33 @@
 				236F0F691D417C6900E00940 /* EventManagerHost+PublisherCallback.swift in Sources */,
 				236F0F611D417B8E00E00940 /* EventManagerHost.swift in Sources */,
 				23E394D71D3E9FE20092F246 /* EventManager+PublisherDataCallback.swift in Sources */,
+				231C4C5C1D4BB59600EC74AC /* ChannelDriver.swift in Sources */,
 				23E394D31D3E9F150092F246 /* EventManager+PublisherCallback.swift in Sources */,
 				236F0F7F1D41839300E00940 /* TypedEventManager+PublisherCallback.swift.swift in Sources */,
+				231C4C441D48F30200EC74AC /* Channel+2RequestReply.swift in Sources */,
+				23EC7B5B1D4BD650007B7740 /* RequestArguments.swift in Sources */,
 				236F0F721D417E4600E00940 /* TypedEventManager.swift in Sources */,
 				236F0F771D41818200E00940 /* EventManager.swift in Sources */,
+				231C4C481D4B925D00EC74AC /* WatchKitChannel.swift in Sources */,
+				231C4C3C1D48F29300EC74AC /* Channel+0RequestReply.swift in Sources */,
 				2307EEBC1C0CAB9900843582 /* Utils.swift in Sources */,
 				231C4C141D42D69600EC74AC /* TypedEventManagerHost+PublisherCallback.swift in Sources */,
 				236F0F7B1D4182D300E00940 /* TypedEventManager+ParameterlessCallback.swift.swift in Sources */,
 				236F0F6D1D417D4700E00940 /* EventManagerHost+PublisherDataCallback.swift in Sources */,
 				2327EAE61C0F734E004AC6BC /* Handler.swift in Sources */,
+				231C4C351D48141F00EC74AC /* Channel.swift in Sources */,
 				2327EAE81C0F7358004AC6BC /* Event.swift in Sources */,
 				23E394C71D3E9D4E0092F246 /* EventManagerBase.swift in Sources */,
+				23EC7B631D4D1383007B7740 /* MockWCSession.swift in Sources */,
+				231C4C581D4BB55600EC74AC /* LocalChannelDriver.swift in Sources */,
+				231C4C601D4BB6DC00EC74AC /* EventBus.swift in Sources */,
+				23EC7B5F1D4BFE75007B7740 /* WatchKitSerializers.swift in Sources */,
 				236F0F651D417BE200E00940 /* EventManagerHost+ParameterlessCallback.swift in Sources */,
+				231C4C401D48F2D500EC74AC /* Channel+1RequestReply.swift in Sources */,
 				2327EAE41C0F7347004AC6BC /* Listener.swift in Sources */,
 				231C4C101D42D4B000EC74AC /* TypedEventManagerHost+ParameterlessCallback.swift in Sources */,
 				23E394CB1D3E9D800092F246 /* EventManagerBase+Utils.swift in Sources */,
+				231C4C531D4BAB8900EC74AC /* WatchKitChannelDriver.swift in Sources */,
 				23E394CF1D3E9E950092F246 /* EventManager+ParameterlessCallback.swift in Sources */,
 				231C4C181D42D78900EC74AC /* TypedEventManagerHost+PublisherDataCallback.swift in Sources */,
 				23E394C31D3E9D330092F246 /* EventManageable.swift in Sources */,
@@ -701,9 +809,13 @@
 			files = (
 				231C4C2E1D42E41700EC74AC /* TestEventManagerHost.swift in Sources */,
 				231C4C1F1D42DB0600EC74AC /* TestTypedEventManager.swift in Sources */,
+				23EC7B591D4BBC8F007B7740 /* TestWatchKitChannelDriver.swift in Sources */,
 				231C4C251D42DDC400EC74AC /* TypedEventManagerHosts.swift in Sources */,
+				231C4C641D4BB72700EC74AC /* TestLocalChannelDriver.swift in Sources */,
 				231C4C2B1D42E2C500EC74AC /* TestEventManager.swift in Sources */,
 				237441B61CC7D6E90001CFF4 /* Delay.swift in Sources */,
+				231C4C501D4B936000EC74AC /* TestWatchKitChannel.swift in Sources */,
+				231C4C391D48EBAE00EC74AC /* TestChannel.swift in Sources */,
 				231C4C311D42E43000EC74AC /* EventManagerHosts.swift in Sources */,
 				231C4C221D42DB1C00EC74AC /* TypedEvents.swift in Sources */,
 				231C4C281D42DE6000EC74AC /* TestTypedEventManagerHost.swift in Sources */,
@@ -714,22 +826,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23EC7B5C1D4BD650007B7740 /* RequestArguments.swift in Sources */,
 				239F6DCB1D424E33009F8DDF /* TypedEventManager+PublisherDataCallback.swift in Sources */,
 				236F0F6A1D417C6900E00940 /* EventManagerHost+PublisherCallback.swift in Sources */,
 				236F0F621D417B8E00E00940 /* EventManagerHost.swift in Sources */,
 				23E394D81D3E9FE20092F246 /* EventManager+PublisherDataCallback.swift in Sources */,
 				23E394D41D3E9F150092F246 /* EventManager+PublisherCallback.swift in Sources */,
 				236F0F801D41839300E00940 /* TypedEventManager+PublisherCallback.swift.swift in Sources */,
+				231C4C451D48F30200EC74AC /* Channel+2RequestReply.swift in Sources */,
+				231C4C611D4BB6DC00EC74AC /* EventBus.swift in Sources */,
 				236F0F731D417E4600E00940 /* TypedEventManager.swift in Sources */,
 				236F0F781D41818200E00940 /* EventManager.swift in Sources */,
+				231C4C3D1D48F29300EC74AC /* Channel+0RequestReply.swift in Sources */,
 				2327EB2D1C0F7C89004AC6BC /* Utils.swift in Sources */,
 				231C4C151D42D69600EC74AC /* TypedEventManagerHost+PublisherCallback.swift in Sources */,
+				231C4C5D1D4BB59600EC74AC /* ChannelDriver.swift in Sources */,
 				236F0F7C1D4182D300E00940 /* TypedEventManager+ParameterlessCallback.swift.swift in Sources */,
 				236F0F6E1D417D4700E00940 /* EventManagerHost+PublisherDataCallback.swift in Sources */,
 				2327EB311C0F7C97004AC6BC /* Handler.swift in Sources */,
+				231C4C361D48141F00EC74AC /* Channel.swift in Sources */,
 				2327EB321C0F7C97004AC6BC /* Event.swift in Sources */,
 				23E394C81D3E9D4E0092F246 /* EventManagerBase.swift in Sources */,
 				236F0F661D417BE200E00940 /* EventManagerHost+ParameterlessCallback.swift in Sources */,
+				231C4C411D48F2D500EC74AC /* Channel+1RequestReply.swift in Sources */,
 				2327EB301C0F7C97004AC6BC /* Listener.swift in Sources */,
 				231C4C111D42D4B000EC74AC /* TypedEventManagerHost+ParameterlessCallback.swift in Sources */,
 				23E394CC1D3E9D800092F246 /* EventManagerBase+Utils.swift in Sources */,
@@ -737,6 +856,7 @@
 				231C4C191D42D78900EC74AC /* TypedEventManagerHost+PublisherDataCallback.swift in Sources */,
 				23E394C41D3E9D330092F246 /* EventManageable.swift in Sources */,
 				239F6DD01D42577C009F8DDF /* TypedEventManagerHost.swift in Sources */,
+				231C4C591D4BB55600EC74AC /* LocalChannelDriver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -747,8 +867,10 @@
 				231C4C2F1D42E41700EC74AC /* TestEventManagerHost.swift in Sources */,
 				231C4C201D42DB0700EC74AC /* TestTypedEventManager.swift in Sources */,
 				231C4C261D42DDC400EC74AC /* TypedEventManagerHosts.swift in Sources */,
+				231C4C651D4BB72700EC74AC /* TestLocalChannelDriver.swift in Sources */,
 				231C4C2C1D42E2C500EC74AC /* TestEventManager.swift in Sources */,
 				237441B71CC7D6E90001CFF4 /* Delay.swift in Sources */,
+				231C4C3A1D48EBAE00EC74AC /* TestChannel.swift in Sources */,
 				231C4C321D42E43000EC74AC /* EventManagerHosts.swift in Sources */,
 				231C4C231D42DB1C00EC74AC /* TypedEvents.swift in Sources */,
 				231C4C291D42DE6000EC74AC /* TestTypedEventManagerHost.swift in Sources */,
@@ -763,21 +885,32 @@
 				236F0F6B1D417C6900E00940 /* EventManagerHost+PublisherCallback.swift in Sources */,
 				236F0F631D417B8E00E00940 /* EventManagerHost.swift in Sources */,
 				23E394D91D3E9FE20092F246 /* EventManager+PublisherDataCallback.swift in Sources */,
+				231C4C5E1D4BB59600EC74AC /* ChannelDriver.swift in Sources */,
 				23E394D51D3E9F150092F246 /* EventManager+PublisherCallback.swift in Sources */,
 				236F0F811D41839300E00940 /* TypedEventManager+PublisherCallback.swift.swift in Sources */,
+				231C4C461D48F30200EC74AC /* Channel+2RequestReply.swift in Sources */,
+				23EC7B5D1D4BD650007B7740 /* RequestArguments.swift in Sources */,
 				236F0F741D417E4600E00940 /* TypedEventManager.swift in Sources */,
 				236F0F791D41818200E00940 /* EventManager.swift in Sources */,
+				231C4C4A1D4B925D00EC74AC /* WatchKitChannel.swift in Sources */,
+				231C4C3E1D48F29300EC74AC /* Channel+0RequestReply.swift in Sources */,
 				2347D0A71C5C1FE000B28395 /* Utils.swift in Sources */,
 				231C4C161D42D69600EC74AC /* TypedEventManagerHost+PublisherCallback.swift in Sources */,
 				236F0F7D1D4182D300E00940 /* TypedEventManager+ParameterlessCallback.swift.swift in Sources */,
 				236F0F6F1D417D4700E00940 /* EventManagerHost+PublisherDataCallback.swift in Sources */,
 				2347D0A91C5C1FE900B28395 /* Handler.swift in Sources */,
+				231C4C371D48141F00EC74AC /* Channel.swift in Sources */,
 				2347D0AA1C5C1FEC00B28395 /* Event.swift in Sources */,
 				23E394C91D3E9D4E0092F246 /* EventManagerBase.swift in Sources */,
+				231C4C5A1D4BB55600EC74AC /* LocalChannelDriver.swift in Sources */,
+				231C4C621D4BB6DC00EC74AC /* EventBus.swift in Sources */,
+				23EC7B601D4BFE75007B7740 /* WatchKitSerializers.swift in Sources */,
 				236F0F671D417BE200E00940 /* EventManagerHost+ParameterlessCallback.swift in Sources */,
+				231C4C421D48F2D500EC74AC /* Channel+1RequestReply.swift in Sources */,
 				2347D0A81C5C1FE600B28395 /* Listener.swift in Sources */,
 				231C4C121D42D4B000EC74AC /* TypedEventManagerHost+ParameterlessCallback.swift in Sources */,
 				23E394CD1D3E9D800092F246 /* EventManagerBase+Utils.swift in Sources */,
+				231C4C551D4BAB8900EC74AC /* WatchKitChannelDriver.swift in Sources */,
 				23E394D11D3E9E950092F246 /* EventManager+ParameterlessCallback.swift in Sources */,
 				231C4C1A1D42D78900EC74AC /* TypedEventManagerHost+PublisherDataCallback.swift in Sources */,
 				23E394C51D3E9D330092F246 /* EventManageable.swift in Sources */,
@@ -895,6 +1028,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -903,10 +1037,12 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-DTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blitzagency.Events;
 				PRODUCT_NAME = Events;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -915,6 +1051,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -923,10 +1060,12 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-DTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blitzagency.Events;
 				PRODUCT_NAME = Events;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -934,9 +1073,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = EventsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blitzagency.EventsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -944,10 +1085,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = EventsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blitzagency.EventsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

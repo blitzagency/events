@@ -40,7 +40,7 @@ extension EventManagerHost {
     }
 
 
-    func trigger<Publisher: EventManagerHost>(_ event: EventPublisher<Publisher>){
+    internal func trigger<Publisher: EventManagerHost>(_ event: EventPublisher<Publisher>){
 
         // when we trigger an event, we use buildEvent() which set's the publisher to
         // ourself on the EventPublisher<Publisher> model.
