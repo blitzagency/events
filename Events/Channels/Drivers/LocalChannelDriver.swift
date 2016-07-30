@@ -11,6 +11,10 @@ import Foundation
 public class LocalChannelDriver: ChannelDriver{
     public var channels = [String: Channel]()
 
+    public func get<Label: RawRepresentable where Label.RawValue == String>(_ key: Label) -> Channel{
+        return get(key.rawValue)
+    }
+
     public func get(_ key: String = "default") -> Channel{
         if let channel = channels[key]{
             print("Got Existing Key: '\(key)'")

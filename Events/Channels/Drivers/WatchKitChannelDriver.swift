@@ -53,6 +53,10 @@ import WatchConnectivity
         }
     }
 
+    public func get<Label: RawRepresentable where Label.RawValue == String>(_ key: Label) -> WatchKitChannel{
+        return get(key.rawValue)
+    }
+
     public func get(_ key: String = "default") -> WatchKitChannel{
         if let channel = channels[key]{
             print("Got Existing Key: '\(key)'")
