@@ -11,14 +11,6 @@ import Foundation
 extension EventManager {
 
 
-//    public func listenTo<Publisher: EventManagerHost, Event: RawRepresentable where Event.RawValue == String>(_ publisher: Publisher, event: Event, callback:() -> ()){
-//        listenTo(publisher.eventManager, event: event.rawValue, callback: callback)
-//    }
-//
-//    public func listenTo<Publisher: EventManagerHost>(_ publisher: Publisher, event: String, callback:() -> ()){
-//        listenTo(publisher.eventManager, event: event, callback: callback)
-//    }
-
     public func listenTo<Publisher: EventManager, Event: RawRepresentable where Event.RawValue == String>(_ publisher: Publisher, event: Event, callback:() -> ()){
         listenTo(publisher, event: event.rawValue, callback: callback)
     }
