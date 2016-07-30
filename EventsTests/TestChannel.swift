@@ -160,5 +160,31 @@ class TestChannel: XCTestCase {
         waitForExpectations(timeout: 1, handler: nil)
         
     }
-    
+
+    func testEmbedded(){
+        let done = expectation(description: "done")
+
+        let channel = Channel(label: "test")
+        let foo = Foo(channel: channel, done: done)
+
+        channel.trigger("lucy", data: "woof")
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+}
+
+class Foo: EventManagerHost{
+    let eventManager = EventManager()
+    let channel: Channel
+    let done: XCTestExpectation
+
+    lazy var onEvent: (Channel, String) -> () = {[unowned self]
+        (sender, data) in
+        self.done.fulfill()
+    }
+
+    init(channel: Channel, done: XCTestExpectation){
+        self.channel = channel
+        self.done = done
+        listenTo(channel, event: "lucy", callback: onEvent)
+    }
 }
