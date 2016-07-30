@@ -152,7 +152,6 @@
 		2307EE5A1C0BAE8000843582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2307EE5F1C0BAE8000843582 /* EventsTests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EventsTests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2307EE661C0BAE8000843582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2307EE6F1C0BAE9F00843582 /* EventManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
 		2307EEBB1C0CAB9900843582 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		2307EEBF1C0F2D6E00843582 /* EventManagerHostTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManagerHostTests.swift; sourceTree = "<group>"; };
 		230A0B401CCEAE3D00BCA5CD /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
@@ -177,12 +176,7 @@
 		231C4C5F1D4BB6DC00EC74AC /* EventBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventBus.swift; sourceTree = "<group>"; };
 		231C4C631D4BB72700EC74AC /* TestLocalChannelDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLocalChannelDriver.swift; sourceTree = "<group>"; };
 		231E4B4C1D3C0C2500FAB75E /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
-		231E4B501D3D078D00FAB75E /* EventManager+NoneCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventManager+NoneCallback.swift"; sourceTree = "<group>"; };
-		231E4B541D3D07F300FAB75E /* EventManager+PublisherCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventManager+PublisherCallback.swift"; sourceTree = "<group>"; };
-		231E4B581D3D084F00FAB75E /* EventManager+PublisherDataCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventManager+PublisherDataCallback.swift"; sourceTree = "<group>"; };
-		231E4B5C1D3D0FA200FAB75E /* TypedEventManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedEventManager.swift; sourceTree = "<group>"; };
 		2327EADE1C0F508B004AC6BC /* MockObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockObject.swift; sourceTree = "<group>"; };
-		2327EAE01C0F7308004AC6BC /* EventManagerHost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManagerHost.swift; sourceTree = "<group>"; };
 		2327EAE31C0F7347004AC6BC /* Listener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listener.swift; sourceTree = "<group>"; };
 		2327EAE51C0F734E004AC6BC /* Handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Handler.swift; sourceTree = "<group>"; };
 		2327EAE71C0F7358004AC6BC /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -300,12 +294,6 @@
 				2327EAE21C0F733E004AC6BC /* Models */,
 				2307EE581C0BAE8000843582 /* Events.h */,
 				2307EE5A1C0BAE8000843582 /* Info.plist */,
-				231E4B5C1D3D0FA200FAB75E /* TypedEventManager.swift */,
-				2307EE6F1C0BAE9F00843582 /* EventManager.swift */,
-				231E4B501D3D078D00FAB75E /* EventManager+NoneCallback.swift */,
-				231E4B541D3D07F300FAB75E /* EventManager+PublisherCallback.swift */,
-				231E4B581D3D084F00FAB75E /* EventManager+PublisherDataCallback.swift */,
-				2327EAE01C0F7308004AC6BC /* EventManagerHost.swift */,
 				2307EEBB1C0CAB9900843582 /* Utils.swift */,
 				231E4B4C1D3C0C2500FAB75E /* Operators.swift */,
 			);
