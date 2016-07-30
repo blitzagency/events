@@ -40,15 +40,6 @@
 		231C4C371D48141F00EC74AC /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C341D48141F00EC74AC /* Channel.swift */; };
 		231C4C391D48EBAE00EC74AC /* TestChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C381D48EBAE00EC74AC /* TestChannel.swift */; };
 		231C4C3A1D48EBAE00EC74AC /* TestChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C381D48EBAE00EC74AC /* TestChannel.swift */; };
-		231C4C3C1D48F29300EC74AC /* Channel+0RequestReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C3B1D48F29300EC74AC /* Channel+0RequestReply.swift */; };
-		231C4C3D1D48F29300EC74AC /* Channel+0RequestReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C3B1D48F29300EC74AC /* Channel+0RequestReply.swift */; };
-		231C4C3E1D48F29300EC74AC /* Channel+0RequestReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C3B1D48F29300EC74AC /* Channel+0RequestReply.swift */; };
-		231C4C401D48F2D500EC74AC /* Channel+1RequestReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C3F1D48F2D500EC74AC /* Channel+1RequestReply.swift */; };
-		231C4C411D48F2D500EC74AC /* Channel+1RequestReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C3F1D48F2D500EC74AC /* Channel+1RequestReply.swift */; };
-		231C4C421D48F2D500EC74AC /* Channel+1RequestReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C3F1D48F2D500EC74AC /* Channel+1RequestReply.swift */; };
-		231C4C441D48F30200EC74AC /* Channel+2RequestReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C431D48F30200EC74AC /* Channel+2RequestReply.swift */; };
-		231C4C451D48F30200EC74AC /* Channel+2RequestReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C431D48F30200EC74AC /* Channel+2RequestReply.swift */; };
-		231C4C461D48F30200EC74AC /* Channel+2RequestReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C431D48F30200EC74AC /* Channel+2RequestReply.swift */; };
 		231C4C481D4B925D00EC74AC /* WatchKitChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C471D4B925D00EC74AC /* WatchKitChannel.swift */; };
 		231C4C4A1D4B925D00EC74AC /* WatchKitChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C471D4B925D00EC74AC /* WatchKitChannel.swift */; };
 		231C4C501D4B936000EC74AC /* TestWatchKitChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C4C4B1D4B92E100EC74AC /* TestWatchKitChannel.swift */; };
@@ -164,11 +155,6 @@
 		2307EE6F1C0BAE9F00843582 /* EventManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
 		2307EEBB1C0CAB9900843582 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		2307EEBF1C0F2D6E00843582 /* EventManagerHostTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManagerHostTests.swift; sourceTree = "<group>"; };
-		230A0B2C1CCEAD9D00BCA5CD /* EventBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventBus.swift; sourceTree = "<group>"; };
-		230A0B2D1CCEAD9D00BCA5CD /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
-		230A0B2E1CCEAD9D00BCA5CD /* ChannelDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelDriver.swift; sourceTree = "<group>"; };
-		230A0B2F1CCEAD9D00BCA5CD /* WatchDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchDriver.swift; sourceTree = "<group>"; };
-		230A0B301CCEAD9D00BCA5CD /* LocalDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDriver.swift; sourceTree = "<group>"; };
 		230A0B401CCEAE3D00BCA5CD /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
 		230A0B421CCEAE5700BCA5CD /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.2.sdk/System/Library/Frameworks/WatchConnectivity.framework; sourceTree = DEVELOPER_DIR; };
 		231C4C0F1D42D4B000EC74AC /* TypedEventManagerHost+ParameterlessCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TypedEventManagerHost+ParameterlessCallback.swift"; sourceTree = "<group>"; };
@@ -183,9 +169,6 @@
 		231C4C301D42E43000EC74AC /* EventManagerHosts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManagerHosts.swift; sourceTree = "<group>"; };
 		231C4C341D48141F00EC74AC /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		231C4C381D48EBAE00EC74AC /* TestChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestChannel.swift; sourceTree = "<group>"; };
-		231C4C3B1D48F29300EC74AC /* Channel+0RequestReply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Channel+0RequestReply.swift"; sourceTree = "<group>"; };
-		231C4C3F1D48F2D500EC74AC /* Channel+1RequestReply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Channel+1RequestReply.swift"; sourceTree = "<group>"; };
-		231C4C431D48F30200EC74AC /* Channel+2RequestReply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Channel+2RequestReply.swift"; sourceTree = "<group>"; };
 		231C4C471D4B925D00EC74AC /* WatchKitChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchKitChannel.swift; sourceTree = "<group>"; };
 		231C4C4B1D4B92E100EC74AC /* TestWatchKitChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestWatchKitChannel.swift; sourceTree = "<group>"; };
 		231C4C521D4BAB8900EC74AC /* WatchKitChannelDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchKitChannelDriver.swift; sourceTree = "<group>"; };
@@ -313,7 +296,6 @@
 				236F0F751D41811300E00940 /* EventManager */,
 				236F0F5F1D417B7000E00940 /* EventManagerHost */,
 				23E394C11D3E9D150092F246 /* EventManagerBase */,
-				230A0B2B1CCEAD8A00BCA5CD /* EventBus_old */,
 				2327EAEE1C0F76FE004AC6BC /* Platforms */,
 				2327EAE21C0F733E004AC6BC /* Models */,
 				2307EE581C0BAE8000843582 /* Events.h */,
@@ -351,18 +333,6 @@
 			path = EventsTests;
 			sourceTree = "<group>";
 		};
-		230A0B2B1CCEAD8A00BCA5CD /* EventBus_old */ = {
-			isa = PBXGroup;
-			children = (
-				230A0B2C1CCEAD9D00BCA5CD /* EventBus.swift */,
-				230A0B2D1CCEAD9D00BCA5CD /* Channel.swift */,
-				230A0B2E1CCEAD9D00BCA5CD /* ChannelDriver.swift */,
-				230A0B2F1CCEAD9D00BCA5CD /* WatchDriver.swift */,
-				230A0B301CCEAD9D00BCA5CD /* LocalDriver.swift */,
-			);
-			path = EventBus_old;
-			sourceTree = "<group>";
-		};
 		230A0B451CCEB31800BCA5CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,9 +363,6 @@
 				231C4C561D4BB53300EC74AC /* Drivers */,
 				23EC7B5A1D4BD650007B7740 /* RequestArguments.swift */,
 				231C4C341D48141F00EC74AC /* Channel.swift */,
-				231C4C3B1D48F29300EC74AC /* Channel+0RequestReply.swift */,
-				231C4C3F1D48F2D500EC74AC /* Channel+1RequestReply.swift */,
-				231C4C431D48F30200EC74AC /* Channel+2RequestReply.swift */,
 				231C4C471D4B925D00EC74AC /* WatchKitChannel.swift */,
 			);
 			path = Channels;
@@ -772,12 +739,10 @@
 				231C4C5C1D4BB59600EC74AC /* ChannelDriver.swift in Sources */,
 				23E394D31D3E9F150092F246 /* EventManager+PublisherCallback.swift in Sources */,
 				236F0F7F1D41839300E00940 /* TypedEventManager+PublisherCallback.swift.swift in Sources */,
-				231C4C441D48F30200EC74AC /* Channel+2RequestReply.swift in Sources */,
 				23EC7B5B1D4BD650007B7740 /* RequestArguments.swift in Sources */,
 				236F0F721D417E4600E00940 /* TypedEventManager.swift in Sources */,
 				236F0F771D41818200E00940 /* EventManager.swift in Sources */,
 				231C4C481D4B925D00EC74AC /* WatchKitChannel.swift in Sources */,
-				231C4C3C1D48F29300EC74AC /* Channel+0RequestReply.swift in Sources */,
 				2307EEBC1C0CAB9900843582 /* Utils.swift in Sources */,
 				231C4C141D42D69600EC74AC /* TypedEventManagerHost+PublisherCallback.swift in Sources */,
 				236F0F7B1D4182D300E00940 /* TypedEventManager+ParameterlessCallback.swift.swift in Sources */,
@@ -791,7 +756,6 @@
 				231C4C601D4BB6DC00EC74AC /* EventBus.swift in Sources */,
 				23EC7B5F1D4BFE75007B7740 /* WatchKitSerializers.swift in Sources */,
 				236F0F651D417BE200E00940 /* EventManagerHost+ParameterlessCallback.swift in Sources */,
-				231C4C401D48F2D500EC74AC /* Channel+1RequestReply.swift in Sources */,
 				2327EAE41C0F7347004AC6BC /* Listener.swift in Sources */,
 				231C4C101D42D4B000EC74AC /* TypedEventManagerHost+ParameterlessCallback.swift in Sources */,
 				23E394CB1D3E9D800092F246 /* EventManagerBase+Utils.swift in Sources */,
@@ -833,11 +797,9 @@
 				23E394D81D3E9FE20092F246 /* EventManager+PublisherDataCallback.swift in Sources */,
 				23E394D41D3E9F150092F246 /* EventManager+PublisherCallback.swift in Sources */,
 				236F0F801D41839300E00940 /* TypedEventManager+PublisherCallback.swift.swift in Sources */,
-				231C4C451D48F30200EC74AC /* Channel+2RequestReply.swift in Sources */,
 				231C4C611D4BB6DC00EC74AC /* EventBus.swift in Sources */,
 				236F0F731D417E4600E00940 /* TypedEventManager.swift in Sources */,
 				236F0F781D41818200E00940 /* EventManager.swift in Sources */,
-				231C4C3D1D48F29300EC74AC /* Channel+0RequestReply.swift in Sources */,
 				2327EB2D1C0F7C89004AC6BC /* Utils.swift in Sources */,
 				231C4C151D42D69600EC74AC /* TypedEventManagerHost+PublisherCallback.swift in Sources */,
 				231C4C5D1D4BB59600EC74AC /* ChannelDriver.swift in Sources */,
@@ -848,7 +810,6 @@
 				2327EB321C0F7C97004AC6BC /* Event.swift in Sources */,
 				23E394C81D3E9D4E0092F246 /* EventManagerBase.swift in Sources */,
 				236F0F661D417BE200E00940 /* EventManagerHost+ParameterlessCallback.swift in Sources */,
-				231C4C411D48F2D500EC74AC /* Channel+1RequestReply.swift in Sources */,
 				2327EB301C0F7C97004AC6BC /* Listener.swift in Sources */,
 				231C4C111D42D4B000EC74AC /* TypedEventManagerHost+ParameterlessCallback.swift in Sources */,
 				23E394CC1D3E9D800092F246 /* EventManagerBase+Utils.swift in Sources */,
@@ -888,12 +849,10 @@
 				231C4C5E1D4BB59600EC74AC /* ChannelDriver.swift in Sources */,
 				23E394D51D3E9F150092F246 /* EventManager+PublisherCallback.swift in Sources */,
 				236F0F811D41839300E00940 /* TypedEventManager+PublisherCallback.swift.swift in Sources */,
-				231C4C461D48F30200EC74AC /* Channel+2RequestReply.swift in Sources */,
 				23EC7B5D1D4BD650007B7740 /* RequestArguments.swift in Sources */,
 				236F0F741D417E4600E00940 /* TypedEventManager.swift in Sources */,
 				236F0F791D41818200E00940 /* EventManager.swift in Sources */,
 				231C4C4A1D4B925D00EC74AC /* WatchKitChannel.swift in Sources */,
-				231C4C3E1D48F29300EC74AC /* Channel+0RequestReply.swift in Sources */,
 				2347D0A71C5C1FE000B28395 /* Utils.swift in Sources */,
 				231C4C161D42D69600EC74AC /* TypedEventManagerHost+PublisherCallback.swift in Sources */,
 				236F0F7D1D4182D300E00940 /* TypedEventManager+ParameterlessCallback.swift.swift in Sources */,
@@ -906,7 +865,6 @@
 				231C4C621D4BB6DC00EC74AC /* EventBus.swift in Sources */,
 				23EC7B601D4BFE75007B7740 /* WatchKitSerializers.swift in Sources */,
 				236F0F671D417BE200E00940 /* EventManagerHost+ParameterlessCallback.swift in Sources */,
-				231C4C421D48F2D500EC74AC /* Channel+1RequestReply.swift in Sources */,
 				2347D0A81C5C1FE600B28395 /* Listener.swift in Sources */,
 				231C4C121D42D4B000EC74AC /* TypedEventManagerHost+ParameterlessCallback.swift in Sources */,
 				23E394CD1D3E9D800092F246 /* EventManagerBase+Utils.swift in Sources */,
