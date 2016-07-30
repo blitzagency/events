@@ -15,6 +15,7 @@ import XCTest
 class TestChannel: XCTestCase {
 
     func test0ArgRequest(){
+        let done = expectation(description: "done")
         let channel = Channel(label: "test")
 
         channel.reply("lucy"){
@@ -24,10 +25,14 @@ class TestChannel: XCTestCase {
         channel.request("lucy"){
             (value: String) in
             XCTAssert(value == "woof")
+            done.fulfill()
         }
+
+        waitForExpectations(timeout: 1, handler: nil)
     }
 
     func test1ArgRequest(){
+        let done = expectation(description: "done")
         let channel = Channel(label: "test")
 
         channel.reply("lucy"){ (v1: String) -> String in
@@ -38,11 +43,15 @@ class TestChannel: XCTestCase {
         channel.request("lucy", "woof"){
             (value: String) in
             XCTAssert(value == "woof")
+            done.fulfill()
         }
+
+        waitForExpectations(timeout: 1, handler: nil)
 
     }
 
     func test2ArgRequest(){
+        let done = expectation(description: "done")
         let channel = Channel(label: "test")
 
         channel.reply("lucy"){ (v1: String, v2: String) -> String in
@@ -52,14 +61,19 @@ class TestChannel: XCTestCase {
         channel.request("lucy", "woof", "chaseSquirrels"){
             (value: String) in
             XCTAssert(value == "woof:chaseSquirrels")
+            done.fulfill()
         }
+
+        waitForExpectations(timeout: 1, handler: nil)
 
     }
 
     func testDoesNotReplyToArgumentCountMismatch(){
+        let done = expectation(description: "done")
         let channel = Channel(label: "test")
 
-        channel.reply("lucy"){ (v1: String, v2: String) -> String in
+        channel.reply("lucy"){
+            (v1: String, v2: String) -> String in
             return "\(v1):\(v2)"
         }
 
@@ -67,6 +81,83 @@ class TestChannel: XCTestCase {
             (value: String) in
             XCTFail("Should not have triggered")
         }
+
+        delay(0.5){
+            done.fulfill()
+        }
+
+
+        waitForExpectations(timeout: 1, handler: nil)
+        
+    }
+
+    func testListenToEventManagerHost(){
+        let done = expectation(description: "done")
+        let channel = Channel(label: "test")
+        let cat = Cat(id: "1")
+
+        cat.listenTo(channel, event: "lucy"){
+            done.fulfill()
+        }
+
+        channel.trigger("lucy")
+
+        waitForExpectations(timeout: 1, handler: nil)
+
+    }
+
+    func testListenToEventManagerHostPublisherCallback(){
+        let done = expectation(description: "done")
+        let channel = Channel(label: "test")
+        let cat = Cat(id: "1")
+
+        cat.listenTo(channel, event: "lucy"){
+            (sender: Channel) in
+            XCTAssert(sender.channelId == channel.channelId)
+            done.fulfill()
+        }
+
+        channel.trigger("lucy")
+
+        waitForExpectations(timeout: 1, handler: nil)
+        
+    }
+
+    func testListenToEventManagerHostPublisherDataCallback(){
+        let done = expectation(description: "done")
+        let channel = Channel(label: "test")
+        let cat = Cat(id: "1")
+
+        cat.listenTo(channel, event: "lucy"){
+            (sender: Channel, data: String) in
+
+            XCTAssert(sender.channelId == channel.channelId)
+            XCTAssert(data == "woof")
+            done.fulfill()
+        }
+
+        channel.trigger("lucy", data: "woof")
+
+        waitForExpectations(timeout: 1, handler: nil)
+        
+    }
+
+    func testListenToEventManagerHostPublisherDataCallbackExplicit(){
+        let done = expectation(description: "done")
+        let channel = Channel(label: "test")
+        let cat = Cat(id: "1")
+
+        let callback : (Channel, String) -> () = {
+            (sender, data) in
+            XCTAssert(sender.channelId == channel.channelId)
+            XCTAssert(data == "woof")
+            done.fulfill()
+        }
+
+        cat.listenTo(channel, event: "lucy", callback: callback)
+        channel.trigger("lucy", data: "woof")
+
+        waitForExpectations(timeout: 1, handler: nil)
         
     }
     
