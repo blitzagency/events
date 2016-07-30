@@ -91,7 +91,7 @@ class TestChannel: XCTestCase {
         
     }
 
-    func testListenToEventManagerHost(){
+    func testEventManagerHostListenToChannel(){
         let done = expectation(description: "done")
         let channel = Channel(label: "test")
         let cat = Cat(id: "1")
@@ -106,7 +106,7 @@ class TestChannel: XCTestCase {
 
     }
 
-    func testListenToEventManagerHostPublisherCallback(){
+    func testEventManagerHostListenToChannelPublisherCallback(){
         let done = expectation(description: "done")
         let channel = Channel(label: "test")
         let cat = Cat(id: "1")
@@ -123,7 +123,7 @@ class TestChannel: XCTestCase {
         
     }
 
-    func testListenToEventManagerHostPublisherDataCallback(){
+    func testEventManagerHostListenToChannelPublisherDataCallback(){
         let done = expectation(description: "done")
         let channel = Channel(label: "test")
         let cat = Cat(id: "1")
@@ -142,7 +142,7 @@ class TestChannel: XCTestCase {
         
     }
 
-    func testListenToEventManagerHostPublisherDataCallbackExplicit(){
+    func testEventManagerHostListenToChannelPublisherDataCallbackExplicit(){
         let done = expectation(description: "done")
         let channel = Channel(label: "test")
         let cat = Cat(id: "1")
