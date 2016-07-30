@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Channel.swift
 //  Events
 //
 //  Created by Adam Venturella on 7/26/16.

@@ -1,5 +1,5 @@
 //
-//  WatchKitDriver.swift
+//  WatchKitChannelDriver.swift
 //  Events
 //
 //  Created by Adam Venturella on 7/29/16.
