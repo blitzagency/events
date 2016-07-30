@@ -64,19 +64,3 @@ public class HandlerPublisherData<Publisher, Data>: HandlerBase, PublisherDataCa
         super.init(publisher: publisher, subscriber: subscriber, listener: listener)
     }
 }
-
-
-
-//public struct xHandler{
-//    unowned let publisher: EventManager
-//    unowned let subscriber: EventManager
-//    unowned let listener: Listener
-//    let callback: (Event) -> ()
-//
-//    init(publisher: EventManager, subscriber: EventManager, listener: Listener, callback: (Event)->()){
-//        self.publisher = publisher
-//        self.subscriber = subscriber
-//        self.listener = listener
-//        self.callback = callback
-//    }
-//}
