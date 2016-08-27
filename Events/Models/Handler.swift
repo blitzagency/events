@@ -50,7 +50,7 @@ public class HandlerBase: EventHandler {
 public class HandlerPublisher<Publisher>: HandlerBase, PublisherCallback {
     public let callback: (EventPublisher<Publisher>) -> ()
 
-    public init(publisher: EventManagerBase, subscriber: EventManagerBase, listener: Listener, callback: (EventPublisher<Publisher>) -> ()){
+    public init(publisher: EventManagerBase, subscriber: EventManagerBase, listener: Listener, callback: @escaping (EventPublisher<Publisher>) -> ()){
         self.callback = callback
         super.init(publisher: publisher, subscriber: subscriber, listener: listener)
     }
@@ -59,7 +59,7 @@ public class HandlerPublisher<Publisher>: HandlerBase, PublisherCallback {
 public class HandlerPublisherData<Publisher, Data>: HandlerBase, PublisherDataCallback {
     public let callback: (EventPublisherData<Publisher, Data>) -> ()
 
-    public init(publisher: EventManagerBase, subscriber: EventManagerBase, listener: Listener, callback: (EventPublisherData<Publisher, Data>) -> ()){
+    public init(publisher: EventManagerBase, subscriber: EventManagerBase, listener: Listener, callback: @escaping (EventPublisherData<Publisher, Data>) -> ()){
         self.callback = callback
         super.init(publisher: publisher, subscriber: subscriber, listener: listener)
     }

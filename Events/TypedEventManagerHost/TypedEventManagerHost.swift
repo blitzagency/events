@@ -50,7 +50,9 @@ extension TypedEventManagerHost{
      - Remark:
      If no event is given, all events will be silenced from the specified publisher.
      */
-    public func stopListening<Event: RawRepresentable, Publisher: TypedEventManagerHost where Event == Publisher.EventType, Event.RawValue == String>(_ publisher: Publisher, event: Event?){
+    public func stopListening<Event: RawRepresentable, Publisher: TypedEventManagerHost>(_ publisher: Publisher, event: Event?)
+        where Event == Publisher.EventType, Event.RawValue == String {
+
         eventManager.stopListening(publisher.eventManager, event: event?.rawValue)
     }
 
@@ -63,7 +65,9 @@ extension TypedEventManagerHost{
      - Remark:
      If no event is given, all events will be silenced from the specified publisher.
      */
-    public func stopListening<Event: RawRepresentable, Publisher: TypedEventManageable where Event == Publisher.EventType, Event.RawValue == String>(_ publisher: Publisher, event: Event?){
+    public func stopListening<Event: RawRepresentable, Publisher: TypedEventManageable>(_ publisher: Publisher, event: Event?)
+        where Event == Publisher.EventType, Event.RawValue == String {
+
         eventManager.stopListening(publisher, event: event?.rawValue)
     }
 

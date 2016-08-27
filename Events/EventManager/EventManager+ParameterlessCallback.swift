@@ -11,11 +11,13 @@ import Foundation
 extension EventManager {
 
 
-    public func listenTo<Publisher: EventManager, Event: RawRepresentable where Event.RawValue == String>(_ publisher: Publisher, event: Event, callback:() -> ()){
+    public func listenTo<Publisher: EventManager, Event: RawRepresentable>(_ publisher: Publisher, event: Event, callback: @escaping () -> ())
+        where Event.RawValue == String {
+
         listenTo(publisher, event: event.rawValue, callback: callback)
     }
 
-    public func listenTo<Publisher: EventManager>(_ publisher: Publisher, event: String, callback:() -> ()){
+    public func listenTo<Publisher: EventManager>(_ publisher: Publisher, event: String, callback: @escaping () -> ()){
         let wrappedCallback: (EventPublisher<Publisher>) -> () = wrapCallback(callback)
         internalOn(publisher, event: event, callback: wrappedCallback)
     }

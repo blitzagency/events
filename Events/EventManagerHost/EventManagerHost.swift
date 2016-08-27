@@ -15,12 +15,16 @@ public protocol EventManagerHost{
 
 extension EventManagerHost{
 
-    public func trigger<Event: RawRepresentable where Event.RawValue == String>(_ event: Event){
+    public func trigger<Event: RawRepresentable>(_ event: Event)
+        where Event.RawValue == String {
+
         let event = buildEvent(event.rawValue, publisher: self)
         trigger(event)
     }
 
-    public func trigger<Data, Event: RawRepresentable where Event.RawValue == String>(_ event: Event, data: Data){
+    public func trigger<Data, Event: RawRepresentable>(_ event: Event, data: Data)
+        where Event.RawValue == String {
+
         let event = buildEvent(event.rawValue, publisher: self, data: data)
         trigger(event)
     }
@@ -39,7 +43,9 @@ extension EventManagerHost{
         eventManager.stopListening()
     }
 
-    public func stopListening<Publisher: EventManager, Event: RawRepresentable where Event.RawValue == String>(_ publisher: Publisher, event: Event?){
+    public func stopListening<Publisher: EventManager, Event: RawRepresentable>(_ publisher: Publisher, event: Event?)
+        where Event.RawValue == String {
+            
         eventManager.stopListening(publisher, event: event?.rawValue)
     }
 

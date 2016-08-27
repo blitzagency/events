@@ -26,7 +26,7 @@ public final class WatchKitChannel: Channel {
     public override func trigger<Data>(_ event: String, data: Data){
 
         guard let payload = data as? AnyObject else {
-            fatalError("WatchKitChannel can only trigger data for AnyObject, got '\(data.dynamicType)'")
+            fatalError("WatchKitChannel can only trigger data for AnyObject, got '\(type(of: data))'")
         }
 
         let event = buildEvent(event, publisher: self, data: payload)

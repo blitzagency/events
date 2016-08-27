@@ -14,7 +14,7 @@ public class EventManagerBase : EventManageable {
     public var listeningTo: [String: Listener] = [:]
     public var events = [String: [HandlerBase]]()
     public var listeners = [String: Listener]()
-    public let lockingQueue = DispatchQueue(label: "com.events.manager.queue.\(uniqueId)", attributes: .serial)
+    public let lockingQueue = DispatchQueue(label: "com.events.manager.queue.\(uniqueId)")
 
     public init(){}
 }

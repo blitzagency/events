@@ -24,7 +24,9 @@ public class EventManager: EventManagerBase {
      myEventManager.trigger(Lucy.ChaseSquirrels)
      ```
     */
-    public func trigger<Event: RawRepresentable where Event.RawValue == String>(_ event: Event){
+    public func trigger<Event: RawRepresentable>(_ event: Event)
+        where Event.RawValue == String {
+
         let event = buildEvent(event.rawValue, publisher: self)
         trigger(event)
     }
@@ -43,7 +45,9 @@ public class EventManager: EventManagerBase {
      myEventManager.trigger(Lucy.ChaseSquirrels, data: <any>)
      ```
     */
-    public func trigger<Data, Event: RawRepresentable where Event.RawValue == String>(_ event: Event, data: Data){
+    public func trigger<Data, Event: RawRepresentable>(_ event: Event, data: Data)
+        where Event.RawValue == String {
+
         let event = buildEvent(event.rawValue, publisher: self, data: data)
         trigger(event)
     }
@@ -86,7 +90,9 @@ public class EventManager: EventManagerBase {
     - Remark:
         If no event is given, all events will be silenced from the specified publisher.
      */
-    public func stopListening<Publisher: EventManager, Event: RawRepresentable where Event.RawValue == String>(_ publisher: Publisher, event: Event?){
+    public func stopListening<Publisher: EventManager, Event: RawRepresentable>(_ publisher: Publisher, event: Event?)
+        where Event.RawValue == String {
+            
         stopListening(publisher, event: event?.rawValue)
     }
 

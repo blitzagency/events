@@ -163,8 +163,8 @@ class TestChannel: XCTestCase {
 
     func testEmbedded(){
         let done = expectation(description: "done")
-
-        let channel = Channel(label: "test")
+        let driver = LocalChannelDriver()
+        let channel = driver.get("test")
         let foo = Foo(channel: channel, done: done)
 
         channel.trigger("lucy", data: "woof")

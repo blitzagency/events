@@ -89,19 +89,19 @@ extension EventManagerBase {
         }
     }
 
-    func wrapCallback<Publisher: EventManagerBase>(_ callback: () -> ()) -> (EventPublisher<Publisher>) -> (){
+    func wrapCallback<Publisher: EventManagerBase>(_ callback: @escaping () -> ()) -> (EventPublisher<Publisher>) -> (){
         return { event in
             callback()
         }
     }
 
-    func wrapCallback<Publisher: EventManagerBase>(_ callback: (Publisher) -> ()) -> (EventPublisher<Publisher>) -> (){
+    func wrapCallback<Publisher: EventManagerBase>(_ callback: @escaping (Publisher) -> ()) -> (EventPublisher<Publisher>) -> (){
         return { event in
             callback(event.publisher)
         }
     }
 
-    func wrapCallback<Publisher: EventManagerBase, Data>(_ callback: (Publisher, Data) -> ()) -> (EventPublisherData<Publisher, Data>) -> (){
+    func wrapCallback<Publisher: EventManagerBase, Data>(_ callback: @escaping (Publisher, Data) -> ()) -> (EventPublisherData<Publisher, Data>) -> (){
         return { event in
             callback(event.publisher, event.data)
         }

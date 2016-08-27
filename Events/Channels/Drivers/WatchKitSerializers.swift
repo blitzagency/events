@@ -59,7 +59,7 @@ func serializeWatchKitRequestEvent<Publisher: WatchKitChannel, Data>(_ event: Ev
     } else {
         for each in generatorForTuple(event.data.tuple!){
             guard let arg = each as? AnyObject else{
-                fatalError("WatchKitChannel can only trigger data for AnyObject, got '\(each.dynamicType)'")
+                fatalError("WatchKitChannel can only trigger data for AnyObject, got '\(type(of: each))'")
             }
 
             args.append(arg)
@@ -76,7 +76,7 @@ func serializeWatchKitRequestEvent<Publisher: WatchKitChannel, Data>(_ event: Ev
 
 func deserializeWatchKitRequestReply(_ data: [String: AnyObject]) -> String{
     guard let reply = data["reply"] as? String else {
-        fatalError("WatchKitChannel request must use reply's that are strings, got '\(data["reply"].dynamicType)'")
+        fatalError("WatchKitChannel request must use reply's that are strings, got '\(type(of: data["reply"]))'")
     }
 
     return reply
@@ -84,7 +84,7 @@ func deserializeWatchKitRequestReply(_ data: [String: AnyObject]) -> String{
 
 func deserializeWatchKitRequestArgs(_ data: [String: AnyObject]) -> [AnyObject]{
     guard let args = data["args"] as? [AnyObject] else {
-        fatalError("WatchKitChannel request must use arguments that are compatible with AnyObject got '\(data["args"].dynamicType)'")
+        fatalError("WatchKitChannel request must use arguments that are compatible with AnyObject got '\(type(of: data["args"]))'")
     }
 
     return args

@@ -11,7 +11,9 @@ import Foundation
 public class LocalChannelDriver: ChannelDriver{
     public var channels = [String: Channel]()
 
-    public func get<Label: RawRepresentable where Label.RawValue == String>(_ key: Label) -> Channel{
+    public func get<Label: RawRepresentable>(_ key: Label) -> Channel
+        where Label.RawValue == String {
+
         return get(key.rawValue)
     }
 

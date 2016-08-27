@@ -10,16 +10,18 @@ import Foundation
 
 extension TypedEventManager {
 
-    public func listenTo<Event, Publisher: TypedEventManager<Event> where Event.RawValue == String>(_ publisher: Publisher, event: Event, callback:(Publisher) -> ()){
+    public func listenTo<Event: RawRepresentable, Publisher: TypedEventManager<Event>>(_ publisher: Publisher, event: Event, callback: @escaping (Publisher) -> ())
+        where Event.RawValue == String {
+            
         listenTo(publisher, event: event.rawValue, callback: callback)
     }
 
-    func listenTo<Publisher: EventManagerBase>(_ publisher: Publisher, event: String, callback:(Publisher) -> ()){
+    func listenTo<Publisher: EventManagerBase>(_ publisher: Publisher, event: String, callback: @escaping (Publisher) -> ()){
         let wrappedCallback = wrapCallback(callback)
         internalOn(publisher, event: event, callback: wrappedCallback)
     }
 
-    func internalOn<Publisher: EventManagerBase>(_ publisher: Publisher, event: String, callback: (EventPublisher<Publisher>) -> ()){
+    func internalOn<Publisher: EventManagerBase>(_ publisher: Publisher, event: String, callback: @escaping (EventPublisher<Publisher>) -> ()){
 
         let listener = publisherListener(publisher)
 

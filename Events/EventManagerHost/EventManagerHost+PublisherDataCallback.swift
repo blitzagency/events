@@ -10,23 +10,25 @@ import Foundation
 
 extension EventManagerHost {
 
-    public func listenTo<Publisher: EventManagerHost, Data, Event: RawRepresentable where Event.RawValue == String>(_ publisher: Publisher, event: Event, callback:(Publisher, Data) -> ()){
+    public func listenTo<Publisher: EventManagerHost, Data, Event: RawRepresentable>(_ publisher: Publisher, event: Event, callback: @escaping (Publisher, Data) -> ())
+        where Event.RawValue == String {
+
         listenTo(publisher, event: event.rawValue, callback: callback)
     }
 
-    public func listenTo<Publisher: EventManagerHost, Data>(_ publisher: Publisher, event: String, callback:(Publisher, Data) -> ()){
+    public func listenTo<Publisher: EventManagerHost, Data>(_ publisher: Publisher, event: String, callback: @escaping (Publisher, Data) -> ()){
 
         let wrappedCallback = wrapCallback(callback)
         internalOn(publisher, event: event, callback: wrappedCallback)
     }
 
-    func wrapCallback<Publisher: EventManagerHost, Data>(_ callback: (Publisher, Data) -> ()) -> (EventPublisherData<Publisher, Data>) -> (){
+    func wrapCallback<Publisher: EventManagerHost, Data>(_ callback: @escaping (Publisher, Data) -> ()) -> (EventPublisherData<Publisher, Data>) -> (){
         return { event in
             callback(event.publisher, event.data)
         }
     }
 
-    func internalOn<Publisher: EventManagerHost, Data>(_ publisher: Publisher, event: String, callback: (EventPublisherData<Publisher, Data>) -> ()){
+    func internalOn<Publisher: EventManagerHost, Data>(_ publisher: Publisher, event: String, callback: @escaping (EventPublisherData<Publisher, Data>) -> ()){
 
         let listener = eventManager.publisherListener(publisher.eventManager)
 

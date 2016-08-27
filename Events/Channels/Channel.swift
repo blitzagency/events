@@ -66,7 +66,7 @@ public class Channel: EventManagerHost{
     /// 0 Arg
     ///
 
-    public func reply<Result>(_ event: String, callback: () -> Result){
+    public func reply<Result>(_ event: String, callback: @escaping () -> Result){
         let request = "\(requestPrefix):\(event)"
 
         listenTo(self, event: request){
@@ -80,7 +80,7 @@ public class Channel: EventManagerHost{
 
     }
 
-    public func request<Result>(_ event: String, callback: (Result) -> ()){
+    public func request<Result>(_ event: String, callback: @escaping (Result) -> ()){
         let replyToken = createReplyToken()
         let request = "\(requestPrefix):\(event)"
         let reply = "\(replyPrefix):\(event):\(replyToken)"
@@ -105,7 +105,7 @@ public class Channel: EventManagerHost{
     /// 1 Arg
     ///
 
-    public func reply<Result, A0>(_ event: String, callback: (A0) -> Result){
+    public func reply<Result, A0>(_ event: String, callback: @escaping (A0) -> Result){
         let request = "\(requestPrefix):\(event)"
 
         listenTo(self, event: request){[unowned self]
@@ -119,7 +119,7 @@ public class Channel: EventManagerHost{
     }
 
 
-    public func request<Result, A0>(_ event: String, _ arg0: A0, callback:(Result) -> ()){
+    public func request<Result, A0>(_ event: String, _ arg0: A0, callback: @escaping (Result) -> ()){
         let replyToken = createReplyToken()
         let request = "\(requestPrefix):\(event)"
         let reply = "\(replyPrefix):\(event):\(replyToken)"
@@ -139,7 +139,7 @@ public class Channel: EventManagerHost{
     /// 2 Args
     ///
 
-    public func reply<Result, A0, A1>(_ event: String, callback: (A0, A1) -> Result){
+    public func reply<Result, A0, A1>(_ event: String, callback: @escaping (A0, A1) -> Result){
         let request = "\(requestPrefix):\(event)"
 
         listenTo(self, event: request){[unowned self]
@@ -154,7 +154,7 @@ public class Channel: EventManagerHost{
     }
 
 
-    public func request<Result, A0, A1>(_ event: String, _ arg0: A0, _ arg1: A1, callback:(Result) -> ()){
+    public func request<Result, A0, A1>(_ event: String, _ arg0: A0, _ arg1: A1, callback: @escaping (Result) -> ()){
         let replyToken = createReplyToken()
         let request = "\(requestPrefix):\(event)"
         let reply = "\(replyPrefix):\(event):\(replyToken)"

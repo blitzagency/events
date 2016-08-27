@@ -53,7 +53,9 @@ public class TypedEventManager<Event: RawRepresentable>: EventManagerBase, Typed
      - Remark:
      If no event is given, all events will be silenced from the specified publisher.
      */
-    public func stopListening<Event: RawRepresentable, Publisher: TypedEventManager<Event> where Event.RawValue == String>(_ publisher: Publisher, event: Event?){
+    public func stopListening<Event: RawRepresentable, Publisher: TypedEventManager<Event>>(_ publisher: Publisher, event: Event?)
+        where Event.RawValue == String {
+            
         stopListening(publisher, event: event?.rawValue)
     }
 
