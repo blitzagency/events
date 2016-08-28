@@ -24,7 +24,10 @@ enum ColorEvents: String{
     case Red = "some:red:event"
 }
 
-class ParentViewController: EventViewController {
+// EventManagerHost is a protocol, stick it on anything you want.
+// it only requires you add an appropriately accessible instance variable
+class ParentViewController: EventManagerHost {
+    let eventManager = EventManager() // <--- the only thing you need. Welcome to using events.
 
     func viewDidLoad(){
         super.viewDidLoad()
@@ -32,8 +35,8 @@ class ParentViewController: EventViewController {
         let red = RedViewController(nibName: "Red", bundle: nil)
 
         // see how we define these handlers below, it's important!
-        listenTo(blue, ColorEvents.Blue, callback: onBlueEvent)
-        listenTo(red, ColorEvents.Red,  callback: onRedEvent)
+        listenTo(blue, event: ColorEvents.Blue, callback: onBlueEvent)
+        listenTo(red, event: ColorEvents.Red,  callback: onRedEvent)
 
         // String based Enums are now the preferred method to register
         // events. Why? One of the problems with the event approach is
@@ -45,8 +48,8 @@ class ParentViewController: EventViewController {
         // maintainability and ease-of-use perspective their use
         // is discouraged. For reference using plain strings looks
         // like this:
-        // listenTo(blue, "some:blue:event", callback: onBlueEvent)
-        // listenTo(red, "some:red:event",  callback: onRedEvent)
+        // listenTo(blue, event: "some:blue:event", callback: onBlueEvent)
+        // listenTo(red, event: "some:red:event",  callback: onRedEvent)
 
         addChildViewController(blue)
         addChildViewController(red)
@@ -90,64 +93,35 @@ class ParentViewController: EventViewController {
     }
 }
 
-class BlueViewController: EventViewController{
+class BlueViewController: EventManagerHost{
+    let eventManager = EventManager()
+
     func viewDidLoad(){
         super.viewDidLoad()
         doSomething()
     }
 
     func doSomething(){
-        trigger(ColorEvents.Blue, 36)
+        trigger(ColorEvents.Blue, data: 36)
 
         // Using the strings (discouraged)
-        // trigger("some:blue:event", 36)
+        // trigger("some:blue:event", data: 36)
     }
 }
 
-class RedViewController : EventViewController{
+class RedViewController : EventManagerHost {
+    let eventManager = EventManager()
+
     func viewDidLoad(){
         super.viewDidLoad()
         doSomething()
     }
 
     func doSomething(){
-        trigger(ColorEvents.Red, true)
+        trigger(ColorEvents.Red, data: true)
 
         // Using the strings (discouraged)
-        // trigger("some:red:event", true)
-    }
-}
-```
-
-### Scheduling Callbacks on an Alternate Dispatch Queue:
-
-```swift
-import UIKit
-import Events
-
-enum ColorEvents: String{
-    case Blue = "some:blue:event"
-    case Red = "some:red:event"
-}
-
-/// This is all an EventViewController really is
-/// one instance variable: eventManager
-class ParentViewController: UIViewController, EventManagerHost {
-    public let eventManager = EventManager()
-
-    func viewDidLoad(){
-        super.viewDidLoad()
-        // let's have our callback not execute
-        // on the main thread. Works exactly the same
-        // you just specify the extra `queue:` arg.
-        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-        listenTo(somePublisher, ColorEvents.Blue, queue: queue callback: onBlueEvent)
-    }
-
-    lazy var onBlueEvent: (OurPublisherType, Int) -> () = { [unowned self]
-        (sender, data) in
-        // HEY-O! NOT ON THE MAIN THREAD!
-        print("\(sender): \(data)")
+        // trigger("some:red:event", data: true)
     }
 }
 ```
@@ -164,9 +138,8 @@ Lets take a look at how you might use it.
 First of all, when you register channels on the EventBus, they stick around
 which means you can get a handle on them from anythign that might need them.
 
-On the flip side, they stick around so put that in your memory management back
-pocket. The channels are not very big at all, so if you are running out of memory
-in your application, you likely have other issues at play.
+On the flip side, they stick around so put that in your
+"things to remember re: memory" back pocket.
 
 ```swift
 import Events
@@ -187,10 +160,14 @@ class Foo: EventManagerHost{
 
 class Bar: EventManagerHost{
     let eventManager = EventManager()
-    let statusChannel = EventBus.localChannel.get("status")
+    let statusChannel = EventBus.localChannel.get("status") // it's the same channel as above!
+                                                            // You could also initialize it with
+                                                            // with an RawRepresentable string enum
+                                                            // to alleviate the polluting your
+                                                            // app with "random strings"
 
     init(){
-        listenTo(statusChannel, MyEvents.Action, callback: onAction)
+        listenTo(statusChannel, event: MyEvents.Action, callback: onAction)
     }
 
     lazy var onAction: (LocalChannel, String) = {
@@ -204,6 +181,9 @@ class Bar: EventManagerHost{
 
 Channels support the same API as any `EventManagerHost` in fact they are an
 `EventManagerHost`. They do come with some extras built in: Request/Reply.
+
+
+### Channel Request/Reply
 
 Request/Reply basically lets you call a function somewhere else and get back
 it's result. It sort of lets your turn your app into an API unto itself allowing
@@ -235,7 +215,7 @@ class Foo: EventManagerHost{
     let statusChannel = EventBus.localChannel.get("status")
 
     func getType(){
-        listenTo(statusChannel, Reply.ReceivedType, callback: onReceivedType)
+        listenTo(statusChannel, event: Reply.ReceivedType, callback: onReceivedType)
         statusChannel.trigger(Request.WantsType, data: "lucy")
     }
 
@@ -252,7 +232,7 @@ class Bar: EventManagerHost{
     let types = ["lucy": PetType.Dog]
 
     init(){
-        listenTo(statusChannel, Request.WantsType, callback: onWantsType)
+        listenTo(statusChannel, event: Request.WantsType, callback: onWantsType)
     }
 
     lazy var onWantsType: (LocalChannel, String) -> () = {[unowned self]
@@ -276,7 +256,7 @@ Yikes, quite a bit in play there!
 - We have to retrigger on the channel once our event handler fires.
 - We need a request and reply event type
 
-We can make this a lot shorter with a channels built in Request/Reply.
+We can make this a lot shorter with a channel's built in Request/Reply.
 Same example as above, but now done with Request/Reply on the channel.
 
 ```swift
@@ -295,6 +275,11 @@ class Foo{
     let statusChannel = EventBus.localChannel.get("status")
 
     func getType(){
+        // Here we send a request of type 'Request.WantsType'
+        // with 1 argument (you can send more than 1 argument).
+        // We are then expecting that once the reply handler does
+        // it's work, our callback will receive a value of 'PetType?'
+
         statusChannel.request(Request.WantsType, "lucy"){
             (value: PetType?) in
             print(value)
@@ -307,6 +292,12 @@ class Bar{
     let types = ["lucy": PetType.Dog]
 
     init(){
+        // the first argument is the type name of the event
+        // we want to reply to. The Callback is the function we would
+        // like to be invoked, when we receive a request.
+        // In this case Any 'request' of type 'Request.WantsType'
+        // will cause 'onWantsType' to be invoked and it's return value
+        // will be passed back to whoever initiated the request.
         statusChannel.reply(Request.WantsType, callback: onWantsType)
     }
 
@@ -329,8 +320,7 @@ It's quite a bit simpler, not so much house keeping to do anymore.
 
 So that's pretty cool right? Why `localChannel` and not just `channel`?
 Turns out we can adapt this to also cover things like WatchOS communication
-using the same API. The primary difference being that **watchOS** wants to
-serialize `AnyObject` vs `Any`. So we handle that case with `watchChannel`.
+using the same API. The primary difference being that **watchOS**.
 
 
 #### Watch Request/Reply
@@ -346,6 +336,10 @@ class InterfaceController: WKInterfaceController{
     let phoneChannel = EventBus.watchChannel.get() // no value the channel is "default"
 
     @IBAction func onPress(){
+        // this will send the request to the phone.
+        // if you wanted channel communication on between
+        // WKInterfaceController you would use a LocalChannel
+        // not a WatchChannel.
         phoneChannel.request(Request.Add, 8){ (value: Int) in
             print("Got Value: \(value)")
         }
@@ -365,7 +359,9 @@ enum Request: String{
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        let watchChannel = EventBus.watchChannel.get()
+        let watchChannel = EventBus.watchChannel.get() // again, no explicit channel
+                                                       // name provided then "default" is
+                                                       // assumed.
 
         watchChannel.reply(Request.Add){
             (value: Int) -> Int in
