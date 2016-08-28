@@ -16,6 +16,8 @@ Events let you just keep going. Need to communicate between N
 Child ViewControllers to their parent ViewController, no problem with
 events:
 
+(Lots more example in the unit tests).
+
 ```swift
 import Events
 
