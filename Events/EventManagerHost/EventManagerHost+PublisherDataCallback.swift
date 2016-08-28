@@ -48,6 +48,7 @@ extension EventManagerHost {
         // ourself on the EventPublisher<Publisher> model.
         // so event.publisher == self
         let handlers = eventManager.publisherEventHandlers(event.publisher.eventManager, event: event.name)
+        print(type(of: Data.self))
 
         handlers?.forEach{ handler in
 

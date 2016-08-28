@@ -17,22 +17,22 @@ public protocol WCSessionMock{
 
     static func isSupported() -> Bool
     func activate()
-    func sendMessage(_ message: [String : AnyObject], replyHandler: (([String : AnyObject]) -> Swift.Void)?, errorHandler: ((NSError) -> Swift.Void)?)
+    func sendMessage(_ message: [String : Any], replyHandler: (@escaping ([String : Any]) -> Swift.Void)?, errorHandler: (@escaping (Error) -> Swift.Void)?)
 }
 
 extension WCSession: WCSessionMock {}
 
 public class MockWCSession: WCSession{
 
-    public override static func isSupported() -> Bool{
+    open override static func isSupported() -> Bool{
         return true
     }
 
-    public override var isReachable: Bool{
+    open override var isReachable: Bool{
         return true
     }
 
-    public override func activate(){
+    open override func activate(){
         if #available(iOSApplicationExtension 9.3, *) {
             delegate?.session(self, activationDidCompleteWith: WCSessionActivationState.activated, error: nil)
         } else {
@@ -40,7 +40,7 @@ public class MockWCSession: WCSession{
         }
     }
 
-    public override func sendMessage(_ message: [String : AnyObject], replyHandler: (([String : AnyObject]) -> Swift.Void)?, errorHandler: ((NSError) -> Swift.Void)? = nil){
+    open override func sendMessage(_ message: [String : Any], replyHandler: (@escaping ([String : Any]) -> Swift.Void)?, errorHandler: (@escaping (Error) -> Swift.Void)? = nil){
         delegate?.session!(self, didReceiveMessage: message)
     }
 }

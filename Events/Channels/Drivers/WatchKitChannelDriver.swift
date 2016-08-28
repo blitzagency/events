@@ -53,8 +53,10 @@ import WatchConnectivity
         }
     }
 
-    public func get<Label: RawRepresentable where Label.RawValue == String>(_ key: Label) -> WatchKitChannel{
-        return get(key.rawValue)
+    public func get<Label: RawRepresentable>(_ key: Label) -> WatchKitChannel
+        where Label.RawValue == String {
+
+return get(key.rawValue)
     }
 
     public func get(_ key: String = "default") -> WatchKitChannel{
@@ -72,7 +74,7 @@ import WatchConnectivity
     }
 
     @available(iOSApplicationExtension 9.3, *)
-    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: NSError?){
+    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?){
 
     }
 
@@ -86,7 +88,7 @@ import WatchConnectivity
 
     }
 
-    public func send(_ payload:[String: AnyObject]){
+    public func send(_ payload:[String: Any]){
         // data has to be AnyObject to be serialized
         guard let session = _session, session.isReachable else {
             print("No Session or session is not reachable")
@@ -96,7 +98,7 @@ import WatchConnectivity
         session.sendMessage(payload, replyHandler: nil, errorHandler: nil)
     }
 
-    public func session(_ session: WCSession, didReceiveMessage message: [String : AnyObject]) {
+    public func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         guard let channelLabel = message["channel"] as? String else {
             fatalError("No channel label provided")
         }
@@ -115,19 +117,20 @@ import WatchConnectivity
         } else {
             handleEvent(channel, event: event, message: message)
         }
-
     }
 
-    func handleRequest(_ channel: WatchKitChannel, event: String, message: [String: AnyObject], request: [String: AnyObject]){
+    func handleRequest(_ channel: WatchKitChannel, event: String, message: [String: Any], request: [String: Any]){
 
-        let args = request["args"] as? [AnyObject]
+
+        let args = request["args"] as? [Any]
         let argCount = args?.count ?? 0
 
         // cast the channel to EventManagerHost 
         // so we don't end up in an infinite loop.
         // We want to call trigger() on the EventManagerHost so it 
         // doesn't try to send the data over the WCSession
-        
+
+
         switch argCount{
         case 0:
             let args = deserializeWatchKitRequestEventNoArgs(request)
@@ -151,7 +154,7 @@ import WatchConnectivity
 
     }
 
-    func handleEvent(_ channel: WatchKitChannel, event: String, message: [String: AnyObject]){
+    func handleEvent(_ channel: WatchKitChannel, event: String, message: [String: Any]){
         if let data = message["data"]{
             let event = buildEvent(event, publisher: channel, data: data)
             (channel as EventManagerHost).trigger(event)

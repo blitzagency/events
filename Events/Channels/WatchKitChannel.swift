@@ -25,7 +25,7 @@ public final class WatchKitChannel: Channel {
 
     public override func trigger<Data>(_ event: String, data: Data){
 
-        guard let payload = data as? AnyObject else {
+        guard let payload = data as AnyObject? else {
             fatalError("WatchKitChannel can only trigger data for AnyObject, got '\(type(of: data))'")
         }
 
@@ -33,10 +33,6 @@ public final class WatchKitChannel: Channel {
         trigger(event)
     }
 
-    override func trigger<T>(_ event: String, args: RequestArguments<T>){
-        let event = buildEvent(event, publisher: self, data: args)
-        trigger(event)
-    }
 
     override func trigger(_ event: String, args: RequestArguments<None>){
         let event = buildEvent(event, publisher: self, data: args)
@@ -44,22 +40,40 @@ public final class WatchKitChannel: Channel {
     }
 
 
-    func trigger<Publisher: WatchKitChannel, Data>(_ event: EventPublisherData<Publisher, RequestArguments<Data>>){
-        let payload = serializeWatchKitRequestEvent(event)
-        driver.send(payload)
+    override func trigger<Arg0>(_ event: String, args: RequestArguments<Arg0>){
+        let event = buildEvent(event, publisher: self, data: args)
+        trigger(event)
     }
+
+
+    func trigger<Arg0, Arg1>(_ event: String, args: RequestArguments<(Arg0, Arg1)>){
+        let event = buildEvent(event, publisher: self, data: args)
+        trigger(event)
+    }
+
 
     func trigger<Publisher: WatchKitChannel>(_ event: EventPublisherData<Publisher, RequestArguments<None>>){
         let payload = serializeWatchKitRequestEvent(event)
         driver.send(payload)
     }
 
+    func trigger<Publisher: WatchKitChannel, Arg0>(_ event: EventPublisherData<Publisher, RequestArguments<Arg0>>){
+        let payload = serializeWatchKitRequestEvent(event)
+        driver.send(payload)
+    }
+
+    func trigger<Publisher: WatchKitChannel, Arg0, Arg1>(_ event: EventPublisherData<Publisher, RequestArguments<(Arg0, Arg1)>>){
+        let payload = serializeWatchKitRequestEvent(event)
+        driver.send(payload)
+    }
+
+
     func trigger<Publisher: WatchKitChannel>(_ event: EventPublisher<Publisher>){
         let payload = serializeWatchKitEvent(event)
         driver.send(payload)
     }
 
-    func trigger<Publisher: WatchKitChannel, Data: AnyObject>(_ event: EventPublisherData<Publisher, Data>){
+    func trigger<Publisher: WatchKitChannel, Data: Any>(_ event: EventPublisherData<Publisher, Data>){
         let payload = serializeWatchKitEvent(event)
         driver.send(payload)
     }
@@ -67,10 +81,10 @@ public final class WatchKitChannel: Channel {
     // All of the request/reply methods intentionally go though
     // super.listenTo so as to avoid using the listenTo below
     // for use during regular events.
-    public func listenTo<Publisher : EventManagerHost, Data>(_ publisher: Publisher, event: String, callback: (Publisher, Data) -> ()) {
+    public func listenTo<Publisher : EventManagerHost, Data>(_ publisher: Publisher, event: String, callback: @escaping (Publisher, Data) -> ()) {
 
         super.listenTo(publisher, event: event){
-        (sender: Publisher, data: AnyObject) in
+        (sender: Publisher, data: Any) in
 
             guard let arg = data as? Data else {
                 fatalError("WatchKitChannel unable to cast '\(data)' to requested type '\(Data.self)' for event '\(event)'")
@@ -85,7 +99,7 @@ public final class WatchKitChannel: Channel {
     /// 0 Arg
     ///
 
-    public override func reply<Result>(_ event: String, callback: () -> Result){
+    public override func reply<Result>(_ event: String, callback: @escaping () -> Result){
         let request = "\(requestPrefix):\(event)"
 
         super.listenTo(self, event: request){
@@ -99,7 +113,7 @@ public final class WatchKitChannel: Channel {
 
     }
 
-    public override func request<Result>(_ event: String, callback: (Result) -> ()){
+    public override func request<Result>(_ event: String, callback: @escaping (Result) -> ()){
         let replyToken = createReplyToken()
         let request = "\(requestPrefix):\(event)"
         let reply = "\(replyPrefix):\(event):\(replyToken)"
@@ -107,7 +121,7 @@ public final class WatchKitChannel: Channel {
 
         super.listenTo(self, event: reply){
             [unowned self]
-            (sender: WatchKitChannel, data: AnyObject) in
+            (sender: WatchKitChannel, data: Any) in
 
             guard let result = data as? Result else{
                 fatalError("WatchKitChannel '\(sender.label)' unable to cast '\(data)' to requested type '\(Result.self)' for reply '\(reply)'")
@@ -131,11 +145,11 @@ public final class WatchKitChannel: Channel {
     /// 1 Arg
     ///
 
-    public override func reply<Result, A0>(_ event: String, callback: (A0) -> Result){
+    public override func reply<Result, A0>(_ event: String, callback: @escaping (A0) -> Result){
         let request = "\(requestPrefix):\(event)"
 
         super.listenTo(self, event: request){[unowned self]
-            (sender: WatchKitChannel, args: RequestArguments<(AnyObject)>) in
+            (sender: WatchKitChannel, args: RequestArguments<(Any)>) in
 
             guard let (arg0) = args.tuple as? (A0) else{
                 return
@@ -147,13 +161,13 @@ public final class WatchKitChannel: Channel {
     }
 
 
-    public override func request<Result, A0>(_ event: String, _ arg0: A0, callback:(Result) -> ()){
+    public override func request<Result, A0>(_ event: String, _ arg0: A0, callback: @escaping (Result) -> ()){
         let replyToken = createReplyToken()
         let request = "\(requestPrefix):\(event)"
         let reply = "\(replyPrefix):\(event):\(replyToken)"
 
         super.listenTo(self, event: reply){[unowned self]
-            (sender: WatchKitChannel, data: AnyObject) in
+            (sender: WatchKitChannel, data: Any) in
 
             guard let result = data as? Result else{
                 fatalError("WatchKitChannel '\(sender.label)' unable to cast '\(data)' to requested type '\(Result.self)' for reply '\(reply)'")
@@ -174,11 +188,11 @@ public final class WatchKitChannel: Channel {
     /// 2 Args
     ///
 
-    public override func reply<Result, A0, A1>(_ event: String, callback: (A0, A1) -> Result){
+    public override func reply<Result, A0, A1>(_ event: String, callback: @escaping (A0, A1) -> Result){
         let request = "\(requestPrefix):\(event)"
 
         super.listenTo(self, event: request){[unowned self]
-            (sender: WatchKitChannel, args: RequestArguments<(AnyObject, AnyObject)>) in
+            (sender: WatchKitChannel, args: RequestArguments<(Any, Any)>) in
 
             guard let arg0 = args.tuple!.0 as? A0, let arg1 = args.tuple!.1 as? A1 else{
                 return
@@ -190,13 +204,13 @@ public final class WatchKitChannel: Channel {
     }
 
 
-    public override func request<Result, A0, A1>(_ event: String, _ arg0: A0, _ arg1: A1, callback:(Result) -> ()){
+    public override func request<Result, A0, A1>(_ event: String, _ arg0: A0, _ arg1: A1, callback: @escaping (Result) -> ()){
         let replyToken = createReplyToken()
         let request = "\(requestPrefix):\(event)"
         let reply = "\(replyPrefix):\(event):\(replyToken)"
 
         super.listenTo(self, event: reply){[unowned self]
-            (sender: WatchKitChannel, data: AnyObject) in
+            (sender: WatchKitChannel, data: Any) in
 
             guard let result = data as? Result else{
                 fatalError("WatchKitChannel '\(sender.label)' unable to cast '\(data)' to requested type '\(Result.self)' for reply '\(reply)'")
