@@ -17,7 +17,7 @@ public protocol WCSessionMock{
 
     static func isSupported() -> Bool
     func activate()
-    func sendMessage(_ message: [String : Any], replyHandler: (@escaping ([String : Any]) -> Swift.Void)?, errorHandler: (@escaping (Error) -> Swift.Void)?)
+    func sendMessage(_ message: [String : Any], replyHandler: (([String : Any]) -> Swift.Void)?, errorHandler: ((Error) -> Swift.Void)?)
 }
 
 extension WCSession: WCSessionMock {}
@@ -40,7 +40,7 @@ public class MockWCSession: WCSession{
         }
     }
 
-    open override func sendMessage(_ message: [String : Any], replyHandler: (@escaping ([String : Any]) -> Swift.Void)?, errorHandler: (@escaping (Error) -> Swift.Void)? = nil){
+    open override func sendMessage(_ message: [String : Any], replyHandler: (([String : Any]) -> Swift.Void)?, errorHandler: ((Error) -> Swift.Void)? = nil){
         delegate?.session!(self, didReceiveMessage: message)
     }
 }
